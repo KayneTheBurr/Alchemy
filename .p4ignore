@@ -3,15 +3,29 @@
 .gitignore
 .gitattributes
 
+# Visual Studio & IDE Caches
+.vs/
+**/.vs/**
+.idea/
+.vscode/
+*.vsconfig
+
+# OS Hidden Files
+.DS_Store
+Thumbs.db
+
 # Unity Cache & Local Files
-Library/
-Temp/
-Obj/
-Build/
-Builds/
-Logs/
-UserSettings/
-MemoryCaptures/
+**/Library/**
+**/Temp/**
+**/obj/**
+**/Logs/**
+**/UserSettings/**
+**/.vs/**
+**/Build/**
+**/Builds/**
+**/MemoryCaptures/**
+**/CrashReports/**
+
 *.csproj
 *.unityproj
 *.sln
