@@ -7,8 +7,19 @@ namespace KE
     {
         public static InputManager instance;
         private PlayerControls playerControls;
+        public PlayerManager player;
 
-        //[Header("Inputs")]
+        [Header("Action Inputs")]
+        public bool dodge_Input = false;
+        public bool potion_Input;
+
+        [Header("Skill Inputs")]
+        public bool skill0_Input;
+        public bool skill1_Input;
+        public bool skill2_Input;
+        public bool skill3_Input;
+        public bool skill4_Input;
+        public bool skill5_Input;
 
         [Header("Movement Values")]
         public Vector3 moveDirection;
@@ -39,7 +50,7 @@ namespace KE
             {
                 playerControls = new PlayerControls();
 
-                //Add all input action mapping here
+                // PLAYER MOVEMENT INPUTS
                 playerControls.Player.Move.performed += i => movementInput = i.ReadValue<Vector2>();
                 playerControls.Player.Move.canceled += i => movementInput = Vector2.zero;
                 playerControls.Player.Look.performed += i =>
@@ -48,6 +59,20 @@ namespace KE
                     isGamepadActive = i.control.device is Gamepad;
                 };
                 playerControls.Player.Look.canceled += i => lookInput = Vector2.zero;
+
+                // Action Inputs
+                playerControls.Player.Dodge.performed += i => dodge_Input = true;
+
+
+                // Skill Inputs
+                playerControls.Player.Skill1.performed += i => skill0_Input = true;
+                playerControls.Player.Skill2.performed += i => skill1_Input = true;
+                playerControls.Player.Skill3.performed += i => skill2_Input = true;
+                playerControls.Player.Skill4.performed += i => skill3_Input = true;
+                playerControls.Player.Skill5.performed += i => skill4_Input = true;
+                playerControls.Player.Skill6.performed += i => skill5_Input = true;
+
+                playerControls.Player.Potion.performed += i => potion_Input = true;
 
 
                 playerControls.Enable();
@@ -67,6 +92,9 @@ namespace KE
         {
             HandleMoveInput();
             HandleLookInput();
+            HandleDodgeInput();
+            HandleSkillInput();
+            HandlePotionUse();
         }
 
         private void HandleMoveInput()
@@ -123,6 +151,73 @@ namespace KE
             {
                 lookInputActive = false;
                 lookDirection = moveDirection;
+            }
+        }
+        private void HandleDodgeInput()
+        {
+            if (dodge_Input)
+            {
+                dodge_Input = false;
+
+                //disable when menu is open
+                if (PlayerUIManager.instance.menuWindowOpen) return;
+
+                player.playerMovementManager.AttemptToDodge();
+            }
+        }
+
+        public void HandleSkillInput()
+        {
+            // Skill 1 / Interact
+            if (skill0_Input)
+            {
+                skill0_Input = false; // Consume the input
+
+                // Hypothetical check: If standing near a chest, open it instead of casting.
+                // if (player.playerInteractManager.currentInteractable != null)
+                // {
+                //     player.playerInteractManager.Interact();
+                //     return; 
+                // }
+
+                player.playerCombatManager.HandleSkillInput(0);
+            }
+
+            // Standard Skills
+            if (skill1_Input)
+            {
+                skill1_Input = false;
+                player.playerCombatManager.HandleSkillInput(1);
+            }
+            if (skill2_Input)
+            {
+                skill2_Input = false;
+                player.playerCombatManager.HandleSkillInput(2);
+            }
+            if (skill3_Input)
+            {
+                skill3_Input = false;
+                player.playerCombatManager.HandleSkillInput(3);
+            }
+            if (skill4_Input)
+            {
+                skill4_Input = false;
+                player.playerCombatManager.HandleSkillInput(4);
+            }
+            if (skill5_Input)
+            {
+                skill5_Input = false;
+                player.playerCombatManager.HandleSkillInput(5);
+            }
+        }
+
+        public void HandlePotionUse()
+        {
+            if (potion_Input)
+            {
+                potion_Input = false;
+
+                Debug.Log("Potion consumed!");
             }
         }
     }

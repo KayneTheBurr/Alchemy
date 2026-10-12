@@ -4,6 +4,7 @@ namespace KE
 {
     public class PlayerStatsManager : CharacterStatsManager
     {
+        #region Variables
         PlayerManager player;
 
         [Header("Player Level")]
@@ -19,11 +20,16 @@ namespace KE
         public int staminaPerDexterity = 5;
         public int manaPerIntelligence = 5;
 
-        [Header("Speed Stats")]
-        public ObservableVariable<float> moveSpeedMultiplier = new ObservableVariable<float>(1.0f);
 
 
+        #endregion
 
+        #region Core Functions
+        protected override void Awake()
+        {
+            base.Awake();
+            player = GetComponent<PlayerManager>();
+        }
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -35,10 +41,20 @@ namespace KE
             maxHealth.OnValueChanged += UpdateMaxHealth;
             maxStamina.OnValueChanged += UpdateMaxStamina;
             maxMana.OnValueChanged += UpdateMaxMana;
-
+        }
+        protected override void Start()
+        {
             currentHealth.OnValueChanged += PlayerUIManager.instance.playerHUDManager.SetNewHealthValue;
             currentStamina.OnValueChanged += PlayerUIManager.instance.playerHUDManager.SetNewStaminaValue;
             currentMana.OnValueChanged += PlayerUIManager.instance.playerHUDManager.SetNewManaValue;
+
+            RecalculateAllAttributes();
+
+            UpdateMaxHealth(maxHealth.Value);
+            UpdateMaxStamina(maxStamina.Value);
+            UpdateMaxMana(maxMana.Value);
+
+            base.Start();
         }
         protected override void OnDisable()
         {
@@ -52,11 +68,14 @@ namespace KE
             maxStamina.OnValueChanged -= UpdateMaxStamina;
             maxMana.OnValueChanged -= UpdateMaxMana;
 
-            currentHealth.OnValueChanged -= PlayerUIManager.instance.playerHUDManager.SetNewHealthValue;
-            currentStamina.OnValueChanged -= PlayerUIManager.instance.playerHUDManager.SetNewStaminaValue;
-            currentMana.OnValueChanged -= PlayerUIManager.instance.playerHUDManager.SetNewManaValue;
+            if (PlayerUIManager.instance != null && PlayerUIManager.instance.playerHUDManager != null)
+            {
+                currentHealth.OnValueChanged -= PlayerUIManager.instance.playerHUDManager.SetNewHealthValue;
+                currentStamina.OnValueChanged -= PlayerUIManager.instance.playerHUDManager.SetNewStaminaValue;
+                currentMana.OnValueChanged -= PlayerUIManager.instance.playerHUDManager.SetNewManaValue;
+            }
         }
-
+        #endregion
 
         private void OnAttributeChanged(float newValue)
         {
@@ -69,14 +88,14 @@ namespace KE
             maxStamina.BaseValue = baseStamina + (dexterity.Value * staminaPerDexterity);
         }
 
-
+        #region Max Resource Update Functions
         private void UpdateMaxHealth(float newMax)
         {
             int maxInt = Mathf.RoundToInt(newMax);
 
             PlayerUIManager.instance.playerHUDManager.SetMaxHealthValue(maxInt);
 
-            if (currentHealth > maxInt)
+            if (currentHealth.Value > maxInt)
             {
                 currentHealth.Value = maxInt;
             }
@@ -103,6 +122,36 @@ namespace KE
                 currentMana.Value = maxInt;
             }
         }
+        #endregion
 
+        #region Use Resource Functions
+        public override bool TryConsumeHealth(float amount)
+        {
+            if (currentHealth.Value >= amount)
+            {
+                currentHealth.Value -= amount;
+                return true;
+            }
+            return false;
+        }
+        public override bool TryConsumeMana(float amount)
+        {
+            if (currentMana.Value >= amount)
+            {
+                currentMana.Value -= amount;
+                return true;
+            }
+            return false;
+        }
+        public override bool TryConsumeStamina(float amount)
+        {
+            if (currentStamina.Value >= amount)
+            {
+                currentStamina.Value -= amount;
+                return true;
+            }
+            return false;
+        }
+        #endregion
     }
 }

@@ -40,24 +40,22 @@ public class CharacterStatsManager : MonoBehaviour
     [Header("Stamina Regeneration")]
     public float staminaRegenTimer = 0;
     public CharacterStat staminaRegenDelay = new CharacterStat(1f);
-    public float staminaTickTimer = 0;
-    public float staminaTickRate = 0.1f;
     public CharacterStat staminaCostModifier = new CharacterStat(1f);
-    public CharacterStat staminaRegenAmount = new CharacterStat(5f);
+    public CharacterStat staminaRegenPerSec = new CharacterStat(20f);
 
     [Header("Mana Regeneration")]
     public float manaRegenTimer = 0;
-    public CharacterStat manaRegenDelay = new CharacterStat(1f);
-    public float manaTickTimer = 0;
-    public float manaTickRate = 0.1f;
+    public CharacterStat manaRegenDelay = new CharacterStat(.25f);
     public CharacterStat manaCostModifier = new CharacterStat(1f);
-    public CharacterStat manaRegenAmount = new CharacterStat(5f);
+    public CharacterStat manaRegenPerSecond = new CharacterStat(10f);
 
     [Header("Additional Combat Multipliers")]
     public CharacterStat critChance = new CharacterStat(0.05f);             // 5% base
     public CharacterStat critDamageMultiplier = new CharacterStat(1.5f);    // 150% base
     public CharacterStat statusBuildupMultiplier = new CharacterStat(1f);   //defualt to using 100% of base damage
 
+    [Header("Speed Stats")]
+    public ObservableVariable<float> moveSpeedMultiplier = new ObservableVariable<float>(1.0f);
 
     #endregion
 
@@ -86,7 +84,8 @@ public class CharacterStatsManager : MonoBehaviour
     }
     protected virtual void Update()
     {
-        
+        RegenerateStamina();
+        RegenerateMana();
     }
     #endregion
 
@@ -110,44 +109,34 @@ public class CharacterStatsManager : MonoBehaviour
     public virtual void RegenerateStamina()
     {
         if (!character) return;
-
         if (character.characterMovementManager.isSprinting) return;
-
         if (character.isPerformingAction) return;
 
         staminaRegenTimer += Time.deltaTime;
+
         if (staminaRegenTimer >= staminaRegenDelay.Value)
         {
             if (currentStamina.Value < maxStamina.Value)
             {
-                staminaTickTimer += Time.deltaTime;
+                float smoothRegenAmount = staminaRegenPerSec.Value * Time.deltaTime;
 
-                if (staminaTickTimer >= staminaTickRate)
-                {
-                    staminaTickTimer = 0;
-                    currentStamina.Value = Mathf.Min(maxStamina.Value, currentStamina.Value + staminaRegenAmount.Value);
-                }
+                currentStamina.Value = Mathf.Min(maxStamina.Value, currentStamina.Value + smoothRegenAmount);
             }
         }
     }
     public virtual void RegenerateMana()
     {
         if (!character) return;
-
-        if (character.isPerformingAction) return;
+        //if (character.isPerformingAction) return;
 
         manaRegenTimer += Time.deltaTime;
         if (manaRegenTimer >= manaRegenDelay.Value)
         {
             if (currentMana.Value < maxMana.Value)
             {
-                manaTickTimer += Time.deltaTime;
+                float smoothRegenAmount = manaRegenPerSecond.Value * Time.deltaTime;
 
-                if (manaTickTimer >= manaTickRate)
-                {
-                    manaTickTimer = 0;
-                    currentMana.Value = Mathf.Min(maxMana.Value, currentMana.Value + manaRegenAmount.Value);
-                }
+                currentMana.Value = Mathf.Min(maxMana.Value, currentMana.Value + smoothRegenAmount);
             }
         }
     }
@@ -170,6 +159,36 @@ public class CharacterStatsManager : MonoBehaviour
             manaRegenTimer = 0;
         }
 
+    }
+    #endregion
+
+    #region Use Resource Functions
+    public virtual bool TryConsumeHealth(float amount)
+    {
+        if (currentHealth.Value >= amount)
+        {
+            currentHealth.Value -= amount;
+            return true;
+        }
+        return false;
+    }
+    public virtual bool TryConsumeMana(float amount)
+    {
+        if (currentMana.Value >= amount)
+        {
+            currentMana.Value -= amount;
+            return true;
+        }
+        return false;
+    }
+    public virtual bool TryConsumeStamina(float amount)
+    {
+        if (currentStamina.Value >= amount)
+        {
+            currentStamina.Value -= amount;
+            return true;
+        }
+        return false;
     }
     #endregion
 }

@@ -12,6 +12,7 @@ namespace KE
         [HideInInspector] public PlayerCombatManager playerCombatManager;
         [HideInInspector] public PlayerInventoryManager playerInventoryManager;
         [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
+        [HideInInspector] public SkillTreeManager skillTreeManager;
 
         //[Header("Player Flags")]
 
@@ -28,6 +29,14 @@ namespace KE
             playerCombatManager = GetComponent<PlayerCombatManager>();
             playerInventoryManager = GetComponent<PlayerInventoryManager>();
             playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
+            skillTreeManager = GetComponent<SkillTreeManager>();
+        }
+        protected override void Start()
+        {
+            base.Start();
+            InputManager.instance.player = this;
+            PlayerCamera.instance.player = this;
+            PlayerUIManager.instance.player = this;
         }
 
         protected override void Update()
@@ -41,7 +50,7 @@ namespace KE
         }
         public override void OnIsMovingChanged(bool oldStatus, bool newStatus)
         {
-            base.OnIsDeadChanged(oldStatus, newStatus);
+            base.OnIsMovingChanged(oldStatus, newStatus);
         }
     }
 }

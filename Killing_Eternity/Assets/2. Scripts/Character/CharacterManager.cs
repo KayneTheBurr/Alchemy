@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace KE
 {
-    public class CharacterManager : MonoBehaviour
+    public class CharacterManager : MonoBehaviour, IDamageable
     {
         [HideInInspector] public Character characterController;
         [HideInInspector] public Animator animator;
@@ -25,7 +25,9 @@ namespace KE
         public ObservableVariable<bool> isDead = new ObservableVariable<bool>();
         public bool canMove = true;
         public bool canRotate = true;
+        public bool applyRootMotion = false;
         public bool isPerformingAction;
+        public ObservableVariable<bool> isInvincible = new ObservableVariable<bool>();
 
         #region Core Functions
         protected virtual void Awake()
@@ -80,6 +82,15 @@ namespace KE
         {
             
             yield return null;
+        }
+
+        public virtual void TakeDamage(float damageValue, Element element)
+        {
+
+        }
+        public Transform GetTransform()
+        {
+            return transform;
         }
 
     }

@@ -5,10 +5,12 @@ namespace KE
 {
     public class PlayerCamera : MonoBehaviour
     {
-        private PlayerManager player;
+        public static PlayerCamera instance;
+        public PlayerManager player;
 
         [Header("Camera Main Components")]
-        [SerializeField] CinemachineCamera cam;
+        public CinemachineCamera cam;
+        public Camera realCam;
         [SerializeField] Transform cameraRoot;
         [SerializeField] Transform cameraPivot;
 
@@ -18,6 +20,15 @@ namespace KE
 
         private void Awake()
         {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
             if (cam == null) cam = GetComponentInChildren<CinemachineCamera>();
             if (cameraRoot == null) cameraRoot = GetComponent<Transform>();
         }
@@ -28,7 +39,7 @@ namespace KE
                 //TEMP
                 //once title screen is fully made, then player should be made in title
                 //sceen when selecting character, and can be assigned to camera once sceen change
-                player = FindFirstObjectByType<PlayerManager>();
+                //player = FindFirstObjectByType<PlayerManager>();
             }
         }
 

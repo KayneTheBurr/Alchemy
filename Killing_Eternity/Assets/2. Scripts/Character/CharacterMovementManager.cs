@@ -1,5 +1,6 @@
 using KE;
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class CharacterMovementManager : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class CharacterMovementManager : MonoBehaviour
         isMoving.OnValueChanged -= character.OnIsMovingChanged;
     }
     protected virtual void Update()
+    {
+
+    }
+
+    public virtual void AttemptToDodge()
     {
 
     }

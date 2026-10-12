@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace KE
@@ -16,7 +17,13 @@ namespace KE
         [Tooltip(" Degrees per second")]
         public float rotationSpeed = 1200f;
 
-        
+        [Header("Dodge Settings")]
+        public float dodgeCost = 100f;
+        public float dodgeDuration = 0.25f;
+        public float dodgeSpeed = 15f;
+        public float dodgeIFrameDuration = 0.1f;
+
+
 
         protected override void Awake()
         {
@@ -41,16 +48,16 @@ namespace KE
             
             HandleMovement();
             HandleRotation();
-            HandleDodge();
         }
 
         private void HandleMovement()
         {
             if (player.isDead) return;
             if (!player.canMove) return;
+            if (isDodging) return;
 
             bool currentlyMoving = moveDirection != Vector3.zero;
-            if (isMoving != currentlyMoving)
+            if (isMoving.Value != currentlyMoving)
             {
                 isMoving.Value = currentlyMoving;
             }
@@ -73,7 +80,7 @@ namespace KE
                 }
             }
             float finalSpeed = baseSpeed * player.playerStatsManager.moveSpeedMultiplier;
-            player.characterController.maxWalkSpeed = baseSpeed;
+            player.characterController.maxWalkSpeed = finalSpeed;
 
             player.characterController.SetMovementDirection(moveDirection.normalized);
             player.playerAnimationManager.UpdateAnimatorMovementParameters(moveDirection, isSprinting);
@@ -82,6 +89,7 @@ namespace KE
         {
             if (player.isDead) return;
             if (!player.canRotate) return;
+            if (isDodging) return;
 
             Vector3 targetLookDir = Vector3.zero;
             if (InputManager.instance.lookInputActive)
@@ -94,7 +102,7 @@ namespace KE
                 }
                 else
                 {
-                    Ray ray = Camera.main.ScreenPointToRay(InputManager.instance.lookInput);
+                    Ray ray = PlayerCamera.instance.realCam.ScreenPointToRay(InputManager.instance.lookInput);
                     Plane groundPlane = new Plane(Vector3.up, transform.position);
 
                     if (groundPlane.Raycast(ray, out float distance))
@@ -118,9 +126,62 @@ namespace KE
                 player.characterController.SetRotationMode(ECM2.Character.RotationMode.OrientRotationToMovement);
             }
         }
-        private void HandleDodge()
+        public override void AttemptToDodge()
         {
-            //Dodge in direction of movement, not facing direction
+            if (player.isPerformingAction || isDodging) return;
+
+            if (!player.playerStatsManager.TryConsumeStamina(dodgeCost)) return;
+
+            Vector3 dodgeDirection = Vector3.zero;
+            string dodgeAnim = "";
+            
+            // If we are moving, dodge in the direction of movement
+            if(isMoving.Value)
+            {
+                dodgeDirection = moveDirection.normalized;
+                dodgeAnim = player.playerAnimationManager.dodgeForward;
+
+                //face the player in the direction of the dodge first
+                player.characterController.SetRotation(Quaternion.LookRotation(dodgeDirection));
+
+            }
+            // if we are NOT moving, dodge backwards
+            else
+            {
+                dodgeDirection = -player.transform.forward;
+                dodgeAnim = player.playerAnimationManager.dodgeBackward;
+            }
+
+            //Start Animation
+            player.playerAnimationManager.PlayActionAnimation(dodgeAnim, true);
+
+            //Start Coroutine
+            StartCoroutine(DodgeRoutine(dodgeDirection));
+
+        }
+        private IEnumerator DodgeRoutine(Vector3 dodgeDirection)
+        {
+            isDodging = true;
+            player.isInvincible.Value = true;
+
+            //change layers to pass through enemies
+            int originalLayer = gameObject.layer;
+            gameObject.layer = LayerMask.NameToLayer("Ghost");
+
+            player.characterController.maxWalkSpeed = dodgeSpeed;
+            player.characterController.SetMovementDirection(dodgeDirection);
+
+            yield return new WaitForSeconds(dodgeIFrameDuration);
+            player.isInvincible.Value = false;
+
+            float remainingDodgeTime = dodgeDuration - dodgeIFrameDuration;
+            if (remainingDodgeTime > 0)
+            {
+                yield return new WaitForSeconds(remainingDodgeTime);
+            }
+
+            gameObject.layer = originalLayer;
+            isDodging = false;
         }
     }
 }
