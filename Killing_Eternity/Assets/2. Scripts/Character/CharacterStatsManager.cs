@@ -42,12 +42,14 @@ public class CharacterStatsManager : MonoBehaviour
     public CharacterStat staminaRegenDelay = new CharacterStat(1f);
     public CharacterStat staminaCostModifier = new CharacterStat(1f);
     public CharacterStat staminaRegenPerSec = new CharacterStat(20f);
+    public float inCombatStaminaRegenScaler = 1.0f;
 
     [Header("Mana Regeneration")]
     public float manaRegenTimer = 0;
     public CharacterStat manaRegenDelay = new CharacterStat(.25f);
     public CharacterStat manaCostModifier = new CharacterStat(1f);
     public CharacterStat manaRegenPerSecond = new CharacterStat(10f);
+    public float inCombatManaRegenScaler = 1.0f;
 
     [Header("Additional Combat Multipliers")]
     public CharacterStat critChance = new CharacterStat(0.05f);             // 5% base
@@ -118,8 +120,13 @@ public class CharacterStatsManager : MonoBehaviour
         {
             if (currentStamina.Value < maxStamina.Value)
             {
-                float smoothRegenAmount = staminaRegenPerSec.Value * Time.deltaTime;
+                float regenRate = staminaRegenPerSec.Value;
+                if(character.characterCombatManager.inCombat.Value)
+                {
+                    regenRate *= inCombatStaminaRegenScaler;
+                }
 
+                float smoothRegenAmount = regenRate * Time.deltaTime;
                 currentStamina.Value = Mathf.Min(maxStamina.Value, currentStamina.Value + smoothRegenAmount);
             }
         }
@@ -134,7 +141,13 @@ public class CharacterStatsManager : MonoBehaviour
         {
             if (currentMana.Value < maxMana.Value)
             {
-                float smoothRegenAmount = manaRegenPerSecond.Value * Time.deltaTime;
+                float regenRate = manaRegenPerSecond.Value;
+                if (character.characterCombatManager.inCombat.Value)
+                {
+                    regenRate *= inCombatManaRegenScaler;
+                }
+
+                float smoothRegenAmount = regenRate * Time.deltaTime;
 
                 currentMana.Value = Mathf.Min(maxMana.Value, currentMana.Value + smoothRegenAmount);
             }

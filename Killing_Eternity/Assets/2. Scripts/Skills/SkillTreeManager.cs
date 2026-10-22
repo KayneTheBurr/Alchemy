@@ -5,7 +5,7 @@ namespace KE
 {
     public class SkillTreeManager : MonoBehaviour
     {
-        public PlayerManager player;
+        [HideInInspector] public PlayerManager player;
 
         [Header("The Tree Sockets")]
         public SkillSocket[] treeSockets = new SkillSocket[6];
@@ -16,6 +16,7 @@ namespace KE
         protected virtual void Awake()
         {
             player = GetComponent<PlayerManager>();
+            treeSockets = new SkillSocket[6];
 
             // Initialize the 6 sockets with their IDs
             for (int i = 0; i < 6; i++)
@@ -23,16 +24,18 @@ namespace KE
                 treeSockets[i] = new SkillSocket(i + 1);
             }
         }
+        private void Start()
+        {
+            
+        }
 
         public void AllocateNode(SkillNode targetNode)
         {
-            if (targetNode.isAllocated) return;
+            if (activeNodes.Contains(targetNode)) return;
 
             // verify requirements here (skill points, mutually exclusive checks, pathing)
 
-            targetNode.isAllocated = true;
             activeNodes.Add(targetNode);
-
             RecalculateEntireTree();
         }
         public void RecalculateEntireTree()

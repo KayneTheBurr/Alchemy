@@ -14,6 +14,7 @@ namespace KE
 
     public enum ResourceType
     {
+        None,
         Health,
         Mana,
         Stamina,
@@ -22,9 +23,14 @@ namespace KE
 
     public enum NodeEffectType
     {
+        None,
         StatModifier,
         UnlockSecondarySlot,
-        CapstoneMechanic
+        Capstone,
+        ElementalConversion,
+        AddTag, RemoveTag,
+        PrefabOverride, AnimationOverride,
+        ResourceConversion
     }
 
     public enum NodeScope
@@ -35,7 +41,9 @@ namespace KE
     public enum StatType
     {
         None,
-        Damage
+        Damage, BloodDamage, BileDamage, FireDamage, IceDamage, SparkDamage, StoneDamage,
+        ProjectileSpeed, ProjectilePierce, ProjectileFork, ProjectileChain, ExtraProjectile
+
     }
     public enum Element
     {
@@ -43,10 +51,16 @@ namespace KE
     }
     public enum SkillTag
     {
-        Spell, Attack, Melee, Projectile, AoE, Nova,
-        Duration, Cooldown, Buff, Debuff, DoT, Channeled, ConditionalTrigger
+        None, Spell, Attack, Melee, Projectile, AOE, Nova,
+        Duration, Cooldown, Buff, Debuff, DOT, Channeled, ConditionalTrigger
     }
-    public enum SkillSpawnLocation { CasterWeapon, CasterFeet, TargetEnemy, CursorLocation }
+    public enum SkillSpawnLocation { CasterRightWeapon, CasterLeftWeapon, CasterFeet, TargetEnemy, CursorLocation }
 
-
+    public enum Faction 
+    { 
+        Player, 
+        Enemy,
+        Ally, 
+        Neutral 
+    }
 }

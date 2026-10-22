@@ -5,15 +5,21 @@ using UnityEngine;
 public class SkillNodeEffect
 {
     public NodeScope scope;
-    public NodeEffectType effectType;
-    public GameObject overridePrefab;
+    public NodeEffectType effectType = NodeEffectType.None;
 
     [Header("Stat Modifier Values")]
     public StatModType modType = StatModType.None;
-    public StatType statType = StatType.None; //Enum needs to contain every possible stat type in the game, very very long enum
+    public StatType statType = StatType.None;
     public float modifierValue = 1.0f;
 
     [Header("Mechanic Altering Affects")]
     public string mechanicID;
+
+    [Header("Overrides & Conversions")]
+    public Element newElement; // if the node changes the skills element or adds an element
+    public string newAnimationString; // if the modification needs a new aniamtion
+    public GameObject newPrefab; // if the mod uses a completely different vfx
+    public SkillTag tagModifier = SkillTag.None;
+    public ResourceType newSkillResource = ResourceType.None;
 
 }

@@ -53,7 +53,7 @@ namespace KE
         private void HandleMovement()
         {
             if (player.isDead) return;
-            if (!player.canMove) return;
+            if (!player.canMove || player.isPerformingAction) return;
             if (isDodging) return;
 
             bool currentlyMoving = moveDirection != Vector3.zero;

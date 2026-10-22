@@ -30,6 +30,10 @@ public class CharacterAnimationManager : MonoBehaviour
         horizontal = Animator.StringToHash("Horizontal");
         moveSpeedMult = Animator.StringToHash("MoveSpeedModifier");
     }
+    protected virtual void Update()
+    {
+
+    }
 
     public virtual void UpdateAnimatorMovementParameters(Vector3 moveDirection, bool isSprinting)
     {

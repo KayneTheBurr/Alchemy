@@ -1,7 +1,14 @@
 fileFormatVersion: 2
 guid: c477cf5be0a20bc4ca28f6d439ac677b
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186463
+  packageName: Script Wizard Anim Set
+  packageVersion: 1.21
+  assetPath: Assets/Script_Wizard_AnimSet/Animation/Humanoid/Inplace/buff01_inplace.fbx
+  uploadId: 708657
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 24200
   internalIDToNameTable: []
   externalObjects: {}
   materials:
@@ -16,8 +23,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -56,7 +61,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.24904944
+        functionName: AnimationEvent_ExecuteSkill
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -87,6 +99,9 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -711,8 +726,7 @@ ModelImporter:
     - name: Bip001 L Finger42
       parentName: Bip001 L Finger41
       position: {x: -0.02977356, y: 0, z: 0.000000009536743}
-      rotation: {x: -0.0000000018667592, y: -0.0000000012745636, z: -0.0032202841,
-        w: 0.9999948}
+      rotation: {x: -0.0000000018667592, y: -0.0000000012745636, z: -0.0032202841, w: 0.9999948}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip001 L ForeTwist
       parentName: Bip001 L UpperArm
@@ -822,8 +836,7 @@ ModelImporter:
     - name: Bip001 R Finger41
       parentName: Bip001 R Finger4
       position: {x: -0.035138626, y: 0, z: 0}
-      rotation: {x: -0.0000000065730323, y: -0.0000000044619903, z: -0.011946662,
-        w: 0.99992865}
+      rotation: {x: -0.0000000065730323, y: -0.0000000044619903, z: -0.011946662, w: 0.99992865}
       scale: {x: 1, y: 1.0000001, z: 1}
     - name: Bip001 R Finger42
       parentName: Bip001 R Finger41
@@ -872,8 +885,7 @@ ModelImporter:
     hasTranslationDoF: 1
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 9f197ad9b3f93654bbd94dfe174c9705,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 9f197ad9b3f93654bbd94dfe174c9705, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
@@ -885,10 +897,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 186463
-  packageName: Script Wizard Anim Set
-  packageVersion: 1.21
-  assetPath: Assets/Script_Wizard_AnimSet/Animation/Humanoid/Inplace/buff01_inplace.fbx
-  uploadId: 708657

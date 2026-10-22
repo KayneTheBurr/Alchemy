@@ -3,10 +3,12 @@ namespace KE
 {
     public class PlayerCombatManager : CharacterCombatManager
     {
-        PlayerManager player;
+        [HideInInspector] public PlayerManager player;
 
         [Header("Testing")]
         public Skill testFireballSO;
+        public SkillNode testIceConversionNode;
+        public SkillNode testIceDamageNode;
 
         protected override void Awake()
         {
@@ -36,11 +38,17 @@ namespace KE
 
             if (testFireballSO != null && player.skillTreeManager != null)
             {
-                // 1. Drop the SO into Tree Socket 1 to generate the ActiveSkillInstance
                 player.skillTreeManager.treeSockets[0].EquipPrimarySkill(testFireballSO);
-
-                // 2. Map the generated instance to the South Button (Hotbar Index 0)
                 AssignSkillToHotbar(player.skillTreeManager.treeSockets[0].primarySkill, 0);
+
+                // 2. Force the booleans to false so the Allocate method doesn't abort
+                if (testIceConversionNode != null) testIceConversionNode.isAllocated = false;
+                if (testIceDamageNode != null) testIceDamageNode.isAllocated = false;
+
+                // 3. Allocate the nodes AFTER the skill is equipped. 
+                // This pushes them into the activeNodes list and triggers RecalculateEntireTree!
+                if (testIceConversionNode != null) player.skillTreeManager.AllocateNode(testIceConversionNode);
+                if (testIceDamageNode != null) player.skillTreeManager.AllocateNode(testIceDamageNode);
             }
         }
     }

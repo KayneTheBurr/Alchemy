@@ -48,10 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2acc4f8b3e8a0e9409a3852f29206eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KE.FireballExecution
-  defaultFireVFX: {fileID: 0}
-  iceConversionVFX: {fileID: 0}
-  bloodConversionVFX: {fileID: 0}
-  projectileSpeed: 15
+  fireExplosionVFX: {fileID: 7267510285996851043, guid: d3d31d2369cf8f04fb0f0667a872a6d1, type: 3}
+  iceExplosionVFX: {fileID: 7267510285996851043, guid: 870e7f7755cff1a428d92c386d3fb37e, type: 3}
 --- !u!135 &1727028273711016844
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -99,7 +97,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!33 &222695475387462207
 MeshFilter:
   m_ObjectHideFlags: 0
