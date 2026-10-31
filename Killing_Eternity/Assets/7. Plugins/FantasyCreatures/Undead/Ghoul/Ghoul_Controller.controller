@@ -7,7 +7,7 @@ AnimatorController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ghoul_Controller
-  serializedVersion: 6
+  serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
@@ -22,7 +22,6 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
-  m_EvaluateTransitionsOnStart: 0
 --- !u!1102 &1102007861689500840
 AnimatorState:
   serializedVersion: 6
@@ -883,7 +882,7 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1107 &1107620338678638050
 AnimatorStateMachine:
-  serializedVersion: 7
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -892,7 +891,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102425377543012966}
-    m_Position: {x: -372, y: -420, z: 0}
+    m_Position: {x: -370, y: -420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102671210404915384}
     m_Position: {x: -372, y: -372, z: 0}
@@ -994,8 +993,8 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 48, y: -192, z: 0}
-  m_EntryPosition: {x: 48, y: -96, z: 0}
-  m_ExitPosition: {x: 48, y: 0, z: 0}
+  m_AnyStatePosition: {x: 70, y: -460, z: 0}
+  m_EntryPosition: {x: 70, y: -430, z: 0}
+  m_ExitPosition: {x: 70, y: -490, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1102425377543012966}

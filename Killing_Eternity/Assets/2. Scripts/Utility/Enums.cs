@@ -63,4 +63,15 @@ namespace KE
         Ally, 
         Neutral 
     }
+    public enum Status
+    {
+        Bleed, Toxin, Burn, Chill, Shock, Sunder,
+        Hemmorhage, Sepsis, Galvanize,
+        Necrosis, Dissolve, Contagion,
+        Wet, Shell, ToxicBlaze, Melt, ThermalShock,
+        Brittle, Freeze, Petrify, Extinguish, Ionize,
+        Paralyze, Electrocute, Battery, Supercharge,
+        Fissure, Stabilize, Molten, Rupture, FissureInfusion, Shatter,
+        None
+    }
 }

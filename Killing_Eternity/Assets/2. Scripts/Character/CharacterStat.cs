@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace KE
 {
+    [Serializable]
     public class CharacterStat
     {
         [SerializeField] private float baseValue;

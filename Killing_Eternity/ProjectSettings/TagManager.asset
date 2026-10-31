@@ -12,11 +12,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Character
+  - Destructible
+  - Interactable
+  - Projectile
+  - Boundaries
   - 
   - 
   - Ghost

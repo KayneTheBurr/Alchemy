@@ -15,14 +15,21 @@ namespace KE
         [HideInInspector] public CharacterStatsManager characterStatsManager;
         [HideInInspector] public CharacterInventoryManager characterInventoryManager;
         [HideInInspector] public CharacterEquipmentManager characterEquipmentManager;
+        [HideInInspector] public StatusManager statusManager;
         
 
         [Header("Character Name")]
         public ObservableVariable<string> characterName = new ObservableVariable<string>("");
 
+        [Header("Factions")]
+        public Faction faction = Faction.Neutral;
+        public Faction MyFaction => faction;
+
 
         [Header("Character Flags")]
         public ObservableVariable<bool> isDead = new ObservableVariable<bool>();
+        public bool IsDead() => isDead.Value;
+
         public bool canMove = true;
         public bool canRotate = true;
         public bool applyRootMotion = false;
@@ -41,6 +48,7 @@ namespace KE
             characterStatsManager = GetComponent<CharacterStatsManager>();
             characterInventoryManager = GetComponent<CharacterInventoryManager>();
             characterEquipmentManager = GetComponent<CharacterEquipmentManager>();
+            statusManager = GetComponent<StatusManager>();
         }
         protected virtual void Start()
         {
@@ -84,13 +92,18 @@ namespace KE
             yield return null;
         }
 
-        public virtual void TakeDamage(float damageValue, Element element)
+        public virtual void TakeDamage(float damageValue, Element element, IDamageable damageSource = null)
         {
-
+            if (isDead.Value) return;
         }
-        public Transform GetTransform()
+        public virtual Transform GetTransform()
         {
             return transform;
+        }
+
+        public virtual void ApplyBuildup(Element element, float buildupAmount, float dotAmount, IDamageable source = null)
+        {
+            statusManager.AddBuildup(element, buildupAmount, dotAmount, source);
         }
 
     }

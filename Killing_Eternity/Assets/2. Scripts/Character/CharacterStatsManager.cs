@@ -22,12 +22,26 @@ public class CharacterStatsManager : MonoBehaviour
     public float baseStamina = 100;
 
     [Header("Damage Multipliers (1.0 = 100%)")]
+    public CharacterStat spellDamageModifier = new CharacterStat(1f);
+    public CharacterStat attackDamageModifier = new CharacterStat(1f);
+
+    public CharacterStat directDamageMultiplier = new CharacterStat(1f);
+    public CharacterStat dotDamageMultiplier = new CharacterStat(1f);
+
     public CharacterStat bloodDamageMult = new CharacterStat(1f);
     public CharacterStat bileDamageMult = new CharacterStat(1f);
     public CharacterStat fireDamageMult = new CharacterStat(1f);
     public CharacterStat iceDamageMult = new CharacterStat(1f);
     public CharacterStat sparkDamageMult = new CharacterStat(1f);
     public CharacterStat stoneDamageMult = new CharacterStat(1f);
+
+    [Header("Flat Added Damage")]
+    public CharacterStat flatAddedBloodDamage = new CharacterStat(0f);
+    public CharacterStat flatAddedBileDamage = new CharacterStat(0f);
+    public CharacterStat flatAddedFireDamage = new CharacterStat(0f);
+    public CharacterStat flatAddedIceDamage = new CharacterStat(0f);
+    public CharacterStat flatAddedSparkDamage = new CharacterStat(0f);
+    public CharacterStat flatAddedStoneDamage = new CharacterStat(0f);
 
     [Header("Resistances")]
     public CharacterStat bloodDefense = new CharacterStat(0f);
@@ -36,6 +50,15 @@ public class CharacterStatsManager : MonoBehaviour
     public CharacterStat iceDefense = new CharacterStat(0f);
     public CharacterStat sparkDefense = new CharacterStat(0f);
     public CharacterStat stoneDefense = new CharacterStat(0f);
+
+    [Header("Ailment Thresholds (Status Resistance)")]
+    [Tooltip("How much buildup is required to trigger the status effect.")]
+    public CharacterStat bloodThreshold = new CharacterStat(100f);
+    public CharacterStat bileThreshold = new CharacterStat(100f);
+    public CharacterStat fireThreshold = new CharacterStat(100f);
+    public CharacterStat iceThreshold = new CharacterStat(100f);
+    public CharacterStat sparkThreshold = new CharacterStat(100f);
+    public CharacterStat stoneThreshold = new CharacterStat(100f);
 
     [Header("Stamina Regeneration")]
     public float staminaRegenTimer = 0;
@@ -52,12 +75,15 @@ public class CharacterStatsManager : MonoBehaviour
     public float inCombatManaRegenScaler = 1.0f;
 
     [Header("Additional Combat Multipliers")]
-    public CharacterStat critChance = new CharacterStat(0.05f);             // 5% base
+    public CharacterStat critChance = new CharacterStat(5f);             // 5% base
     public CharacterStat critDamageMultiplier = new CharacterStat(1.5f);    // 150% base
     public CharacterStat statusBuildupMultiplier = new CharacterStat(1f);   //defualt to using 100% of base damage
 
+    [Header("Action Speed")]
+    public CharacterStat actionSpeed = new CharacterStat(1.0f);
+
     [Header("Speed Stats")]
-    public ObservableVariable<float> moveSpeedMultiplier = new ObservableVariable<float>(1.0f);
+    public CharacterStat moveSpeedMultiplier = new CharacterStat(1.0f);
 
     #endregion
 
@@ -71,6 +97,8 @@ public class CharacterStatsManager : MonoBehaviour
         currentHealth.Value = maxHealth.Value;
         currentStamina.Value = maxStamina.Value;
         currentMana.Value = maxMana.Value;
+
+        SyncStatusThresholds();
     }
     protected virtual void OnEnable()
     {
@@ -202,6 +230,67 @@ public class CharacterStatsManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+    #endregion
+
+
+    #region Elemental Resistance and Thresholds
+    public float GetResistance(Element element)
+    {
+        switch (element)
+        {
+            case Element.Blood: return bloodDefense.Value;
+            case Element.Bile: return bileDefense.Value;
+            case Element.Fire: return fireDefense.Value;
+            case Element.Ice: return iceDefense.Value;
+            case Element.Spark: return sparkDefense.Value;
+            case Element.Stone: return stoneDefense.Value;
+            default: return 0f;
+        }
+    }
+    public float GetAilmentThreshold(Element element)
+    {
+        switch (element)
+        {
+            case Element.Blood: return bloodThreshold.Value;
+            case Element.Bile: return bileThreshold.Value;
+            case Element.Fire: return fireThreshold.Value;
+            case Element.Ice: return iceThreshold.Value;
+            case Element.Spark: return sparkThreshold.Value;
+            case Element.Stone: return stoneThreshold.Value;
+            default: return 100f;
+        }
+    }
+    public void SyncStatusThresholds()
+    {
+        if (character.statusManager != null)
+        {
+            character.statusManager.SetThresholds(
+                bloodThreshold.Value,
+                bileThreshold.Value,
+                fireThreshold.Value,
+                iceThreshold.Value,
+                sparkThreshold.Value,
+                stoneThreshold.Value
+            );
+        }
+    }
+
+    #endregion
+
+    #region Damage
+    public float GetElementalDamageModifier(Element element)
+    {
+        switch (element)
+        {
+            case Element.Blood: return bloodDamageMult.Value;
+            case Element.Bile: return bileDamageMult.Value;
+            case Element.Fire: return fireDamageMult.Value;
+            case Element.Ice: return iceDamageMult.Value;
+            case Element.Spark: return sparkDamageMult.Value;
+            case Element.Stone: return stoneDamageMult.Value;
+            default: return 1f;
+        }
     }
     #endregion
 }

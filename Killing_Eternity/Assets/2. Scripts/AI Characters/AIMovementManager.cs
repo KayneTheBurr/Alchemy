@@ -5,6 +5,10 @@ public class AIMovementManager : CharacterMovementManager
 {
     AICharacterManager aiCharacter;
 
+    [Header("AI Character MOvement Tuning")]
+    public float baseMovementSpeed = 3;
+    public float rotationSpeed = 50f;
+
     protected override void Awake()
     {
         base.Awake();
@@ -25,6 +29,6 @@ public class AIMovementManager : CharacterMovementManager
         }
 
         //scale navmesh speed with movespeed stats manager value
-        aiCharacter.navMeshAgent.speed = aiCharacter.characterStatsManager.moveSpeedMultiplier.Value;
+        aiCharacter.navMeshAgent.speed = baseMovementSpeed * aiCharacter.characterStatsManager.moveSpeedMultiplier.Value;
     }
 }

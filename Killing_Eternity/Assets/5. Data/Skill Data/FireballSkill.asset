@@ -19,9 +19,10 @@ MonoBehaviour:
   skillElement: 2
   skillTags: 010000000400000005000000
   spawnLocation: 1
-  baseSkillCost: 5
+  baseSkillCost: 15
   baseResourceType: 2
-  baseDamage: 10
+  baseDamage: 50
+  baseMeleeRange: 2
   baseCooldown: 0
   baseDuration: 0
   projectileSpeed: 20
@@ -29,10 +30,14 @@ MonoBehaviour:
   baseForkCount: 0
   baseChainCount: 0
   baseAdditionalProjectiles: 0
-  baseAoeRadius: 0
-  baseAoeDamageMult: 0.5
+  baseAoeRadius: 2
+  baseAoeDamageMult: 0.75
   baseCritChance: 0.05
   baseCritDamage: 1.5
-  baseStatusMod: 1
-  skillAnimation: Cast_Projectile_01
+  baseStatusMod: 4
+  canMoveWhileCasting: 0
+  canRotateWhileCasting: 0
+  baseAnimationSpeed: 2
+  applyRootMotion: 0
+  skillAnimation: Ranged_Attack_01
   skillPrefab: {fileID: 6495342998156537446, guid: 9ac9e49c593e4534b9b6a92566047a80, type: 3}

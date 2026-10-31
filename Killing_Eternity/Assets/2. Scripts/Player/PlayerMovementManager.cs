@@ -79,7 +79,7 @@ namespace KE
                     baseSpeed = runSpeed;
                 }
             }
-            float finalSpeed = baseSpeed * player.playerStatsManager.moveSpeedMultiplier;
+            float finalSpeed = baseSpeed * player.playerStatsManager.moveSpeedMultiplier.Value;
             player.characterController.maxWalkSpeed = finalSpeed;
 
             player.characterController.SetMovementDirection(moveDirection.normalized);

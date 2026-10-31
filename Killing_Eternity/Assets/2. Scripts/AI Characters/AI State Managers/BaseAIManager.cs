@@ -7,8 +7,7 @@ namespace KE
         [HideInInspector] public AICharacterManager aiCharacter;
 
         [Header("Targeting & Alignment")]
-        public Faction teamAlignment = Faction.Enemy;
-        public CharacterManager currentTarget;
+        //public CharacterManager currentTarget;
 
         [Header("AI State Tick Rate")]
         [Tooltip("How often the AI evaluates its logic (e.g., 0.1 = 10 times per second)")]
@@ -32,6 +31,10 @@ namespace KE
         }
 
         protected abstract void ProcessStateMachine();
+
+        public virtual void AlertToTarget(IDamageable targetToChase)
+        {
+        }
 
     }
 }

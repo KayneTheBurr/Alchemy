@@ -26,6 +26,8 @@ public class ActiveSkillInstance
     public CharacterStat activeDuration;
     public CharacterStat activeAoeDamageMultiplier;
     public CharacterStat activeProjectileSpeed;
+    public CharacterStat activeStatusMod;
+    public CharacterStat activeAnimationSpeed;
 
     public ActiveSkillInstance(Skill skillSO)
     {
@@ -47,6 +49,8 @@ public class ActiveSkillInstance
         activeAoeDamageMultiplier = new CharacterStat(skillSO.baseAoeDamageMult);
         activeDuration = new CharacterStat(skillSO.baseDuration);
         activeProjectileSpeed = new CharacterStat(skillSO.projectileSpeed);
+        activeAnimationSpeed = new CharacterStat(skillSO.baseAnimationSpeed);
+        activeStatusMod = new CharacterStat(skillSO.baseStatusMod);
     }
 
     public bool CanIPerformSkill(CharacterManager character)
@@ -80,11 +84,25 @@ public class ActiveSkillInstance
         {
             DeductResourceCost(character);
             character.characterCombatManager.currentCastingSkill = this;
-            character.characterController.SetMovementDirection(Vector3.zero);
-            character.characterController.SetVelocity(Vector3.zero);
+            if (!baseSkill.canMoveWhileCasting)
+            {
+                character.characterController.SetMovementDirection(Vector3.zero);
+                character.characterController.SetVelocity(Vector3.zero);
+            }
             character.isPerformingAction = true;
 
-            character.characterAnimationManager.PlayActionAnimation(activeAnimation, true);
+            float totalAttackSpeed = baseSkill.baseAnimationSpeed;
+
+            //add in attack speed multipliers here
+
+            character.characterAnimationManager.PlayActionAnimation(
+            activeAnimation,
+            true,
+            baseSkill.applyRootMotion,
+            baseSkill.canRotateWhileCasting,
+            baseSkill.canMoveWhileCasting,
+            totalAttackSpeed
+        );
         }
     }
 
@@ -107,7 +125,7 @@ public class ActiveSkillInstance
                 spawnPos = character.transform.position;
                 break;
             case SkillSpawnLocation.TargetEnemy:
-                // Assuming your CombatManager tracks lock-on or hovered targets
+                // need targetting to do this 
                 if (character.characterCombatManager.currentTarget != null)
                 {
                     spawnPos = character.characterCombatManager.currentTarget.GetTransform().position;
@@ -133,20 +151,135 @@ public class ActiveSkillInstance
         }
     }
 
-
-    public float GetCalculatedDamage(bool isAOESplash = false)
+    #region Damage Calculations
+    // Base Damage Calc
+    public Dictionary<Element, float> GetCoreElementalDamageValues(CharacterManager character, bool isAOESplash = false)
     {
-        float damage = baseSkill.baseDamage * activeDamageMultiplier.Value;
+        Dictionary<Element, float> payload = new Dictionary<Element, float>();
 
-        if (isAOESplash)
+        // Add the elemental damage from base skill 
+        payload[activeElement] = baseSkill.baseDamage;
+
+        if (character != null && character.characterStatsManager != null)
         {
-            damage *= activeAoeDamageMultiplier.Value;
+            //helper func to add each element to the dictionary first
+            void AddFlatDamage(Element el, float amount)
+            {
+                if (amount > 0)
+                {
+                    if (!payload.ContainsKey(el)) payload[el] = 0f;
+                    payload[el] += amount;
+                }
+            }
+
+            // 2. Add flat damage from gear
+            AddFlatDamage(Element.Blood, character.characterStatsManager.flatAddedBloodDamage.Value);
+            AddFlatDamage(Element.Bile, character.characterStatsManager.flatAddedBileDamage.Value);
+            AddFlatDamage(Element.Fire, character.characterStatsManager.flatAddedFireDamage.Value);
+            AddFlatDamage(Element.Ice, character.characterStatsManager.flatAddedIceDamage.Value);
+            AddFlatDamage(Element.Spark, character.characterStatsManager.flatAddedSparkDamage.Value);
+            AddFlatDamage(Element.Stone, character.characterStatsManager.flatAddedStoneDamage.Value);
+
+            // apply Crit modifiers here
+            float critMultiplier = 1f;
+            if (UnityEngine.Random.Range(0f, 100f) <= character.characterStatsManager.critChance.Value)
+            {
+                critMultiplier = character.characterStatsManager.critDamageMultiplier.Value;
+                Debug.Log("Critical Hit!");
+            }
+
+            float aoeMult = 1f;
+            if (isAOESplash)
+            {
+                aoeMult = activeAoeDamageMultiplier.Value;
+            }
+
+            float totalMultiplier = critMultiplier * aoeMult;
+
+            List<Element> keys = new List<Element>(payload.Keys);
+            foreach (Element el in keys)
+            {
+                payload[el] *= totalMultiplier;
+            }
+        }
+        return payload;
+    }
+
+    // Direct Hit Damage
+    public Dictionary<Element, float> GetCalculatedHitDamage(Dictionary<Element, float> corePayload, CharacterManager character, bool isAOESplash = false)
+    {
+        Dictionary<Element, float> hitDamage = new Dictionary<Element, float>(corePayload);
+
+        float hitMultiplier = activeDamageMultiplier.Value;
+
+        if (character != null && character.characterStatsManager != null)
+        {
+            // Add Spell or Attack damage, dont affect buildup
+            // cehck for skill tags attack vs spell vs whatever later just globally using spell damge for now 
+            hitMultiplier *= character.characterStatsManager.spellDamageModifier.Value;
         }
 
-        //crit, crit damage, status application here?
-        //all numerical modifiers need to be checked here
+        List<Element> keys = new List<Element>(hitDamage.Keys);
+        foreach (Element el in keys)
+        {
+            float elementalMod = 1f;
+            if (character != null && character.characterStatsManager != null)
+            {
+                elementalMod = character.characterStatsManager.GetElementalDamageModifier(el);
+            }
 
+            hitDamage[el] *= (hitMultiplier * elementalMod);
+        }
 
-        return damage;
+        return hitDamage;
     }
+
+    // Damage Over Time
+    public Dictionary<Element, float> GetCalculatedDOTPayload(Dictionary<Element, float> corePayload, CharacterManager character)
+    {
+        Dictionary<Element, float> dotPayload = new Dictionary<Element, float>(corePayload);
+
+        if (character != null && character.characterStatsManager != null)
+        {
+            float dotMultiplier = character.characterStatsManager.dotDamageMultiplier.Value;
+            
+            List<Element> keys = new List<Element>(dotPayload.Keys);
+            foreach (Element el in keys)
+            {
+                float elementalMod = character.characterStatsManager.GetElementalDamageModifier(el);
+
+                // add in specific magnitude like toxin/burn damage here
+
+                dotPayload[el] *= (dotMultiplier * elementalMod);
+            }
+        }
+
+        return dotPayload;
+    }
+
+    // Status Application
+    public Dictionary<Element, float> GetCalculatedBuildup(Dictionary<Element, float> corePayload, CharacterManager character)
+    {
+        Dictionary<Element, float> buildupPayload = new Dictionary<Element, float>(corePayload);
+
+        // local conversion ratio from the skill and its modifiers
+        float skillConversionRate = activeStatusMod.Value;
+        float statModifier = 1f;
+
+        if (character != null && character.characterStatsManager != null)
+        {
+            // global sttat mod modifier
+            statModifier = character.characterStatsManager.statusBuildupMultiplier.Value;
+        }
+
+        List<Element> keys = new List<Element>(buildupPayload.Keys);
+        foreach (Element el in keys)
+        {
+            buildupPayload[el] *= (skillConversionRate * statModifier);
+        }
+
+        return buildupPayload;
+    }
+    #endregion
+
 }

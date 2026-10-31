@@ -12,7 +12,7 @@ namespace KE
         private bool hasDetonated = false;
         private float projectileRadius;
 
-        public override void Initialize(ActiveSkillInstance activeSkill, CharacterManager character)
+        public override void Initialize(ActiveSkillInstance activeSkill, CharacterManager character, IDamageable target = null)
         {
             base.Initialize(activeSkill, character);
 
@@ -74,21 +74,15 @@ namespace KE
             hasDetonated = true;
 
             IDamageable target = other.GetComponent<IDamageable>();
-            float damageDone = 0;
+
             if (target != null)
             {
-                damageDone = skillData.GetCalculatedDamage(false);
-                target.TakeDamage(damageDone, skillData.activeElement);
+                ApplySkillDamageAndStatus(target, false);
             }
-
-            damageDone = skillData.GetCalculatedDamage(false);
-            Debug.Log($"Dealt {damageDone} {skillData.activeElement} damage!");
 
             DetonateFireball(target, impactPoint);
             Destroy(gameObject);
         }
-        
-
 
         public void DetonateFireball(IDamageable excludeTarget, Vector3 detonationPoint)
         {
@@ -98,16 +92,19 @@ namespace KE
             switch (skillData.activeElement)
             {
                 case Element.Ice: selectedExplosionVFX = iceExplosionVFX; break;
+                    // if this can be converted to other elements, do it here
             }
 
             if (selectedExplosionVFX != null)
             {
                 Vector3 vfxSpawnPos = detonationPoint;
+
+                // this should likely be included in the world utility manager now instead of hard coded
                 int groundLayerMask = LayerMask.GetMask("Default");
 
                 if (Physics.Raycast(detonationPoint, Vector3.down, out RaycastHit hit, 10f, groundLayerMask))
                 {
-                    // Snap to the floor! Add a tiny vertical offset (0.05f) so decals don't Z-fight.
+                    // Snap to the floor, add a little vertical offset for vfx to stay not inside the ground
                     vfxSpawnPos = hit.point + new Vector3(0, 0.05f, 0);
                 }
 
@@ -115,10 +112,12 @@ namespace KE
                 Destroy(spawnedVFX, 2f);
             }
 
-            Collider[] hitColliders = Physics.OverlapSphere(detonationPoint, explosionRadius);
+            Collider[] hitColliders = Physics.OverlapSphere(detonationPoint, explosionRadius, WorldUtilityManager.instance.GetDamageLayers());
+            DrawDebugSphere(detonationPoint, explosionRadius, Color.red);
 
             foreach (Collider hit in hitColliders)
             {
+                //ignore casting character 
                 if (hit.gameObject == character.gameObject) continue;
 
                 IDamageable splashTarget = hit.GetComponent<IDamageable>();
@@ -126,12 +125,39 @@ namespace KE
                 //must be a damageable target and not the one directly hit by the skill 
                 if (splashTarget != null && splashTarget != excludeTarget)
                 {
-                    // calc base damage with multipliers, then apply the aoe multiplier to the base damage
-                    float baseCalc = skillData.baseSkill.baseDamage * skillData.activeDamageMultiplier.Value;
-                    float splashDamage = baseCalc * skillData.activeAoeDamageMultiplier.Value;
-
-                    splashTarget.TakeDamage(splashDamage, skillData.activeElement);
+                    ApplySkillDamageAndStatus(splashTarget, true);
+                    Debug.Log($"Dealt Splash damage to {splashTarget}");
                 }
+            }
+        }
+        public static void DrawDebugSphere(Vector3 center, float radius, Color color, int segments = 16)
+        {
+            float angleStep = 360f / segments;
+
+            Vector3 prevX = Vector3.zero;
+            Vector3 prevY = Vector3.zero;
+            Vector3 prevZ = Vector3.zero;
+
+            for (int i = 0; i <= segments; i++)
+            {
+                float angle = i * angleStep * Mathf.Deg2Rad;
+                float s = Mathf.Sin(angle) * radius;
+                float c = Mathf.Cos(angle) * radius;
+
+                Vector3 nextX = center + new Vector3(0, s, c);  // YZ plane ring
+                Vector3 nextY = center + new Vector3(s, 0, c);  // XZ plane ring
+                Vector3 nextZ = center + new Vector3(s, c, 0);  // XY plane ring
+
+                if (i > 0)
+                {
+                    Debug.DrawLine(prevX, nextX, color);
+                    Debug.DrawLine(prevY, nextY, color);
+                    Debug.DrawLine(prevZ, nextZ, color);
+                }
+
+                prevX = nextX;
+                prevY = nextY;
+                prevZ = nextZ;
             }
         }
     }

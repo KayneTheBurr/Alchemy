@@ -52,5 +52,28 @@ namespace KE
         {
             base.OnIsMovingChanged(oldStatus, newStatus);
         }
+        public override void TakeDamage(float damageValue, Element element, IDamageable damageSource = null)
+        {
+            base.TakeDamage(damageValue, element);
+
+            float rawResistance = characterStatsManager.GetResistance(element);
+            float effectiveResistance = Mathf.Clamp(rawResistance, -100f, 75f);
+
+            float damageMultiplier = 1f - (effectiveResistance / 100f);
+            float finalDamage = Mathf.Max(damageValue * damageMultiplier, 0f);
+
+            characterStatsManager.currentHealth.Value -= finalDamage;
+
+            if (characterStatsManager.currentHealth.Value <= 0)
+            {
+                isDead.Value = true;
+                // Trigger player death screen / respawn logic
+            }
+            else
+            {
+                // Update Player Health UI
+                // Trigger Player Hit Animation
+            }
+        }
     }
 }

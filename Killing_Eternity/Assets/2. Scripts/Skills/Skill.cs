@@ -1,3 +1,4 @@
+using Autodesk.Fbx;
 using KE;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,10 +38,19 @@ public class Skill : ScriptableObject
     public float baseAoeRadius = 0f;
     public float baseAoeDamageMult = 0.5f;
 
-    [Header("Critical & Status")]
+    [Header("Crit Stats")]
     public float baseCritChance = 0.05f; // 5% base crit
     public float baseCritDamage = 1.5f;  // 150% base multiplier
+
+    [Header("Status Modifiers")]
     public float baseStatusMod = 1.0f;
+
+    [Header("Animation Settings")]
+    public bool canMoveWhileCasting = false;
+    public bool canRotateWhileCasting = false;
+    [Tooltip("1.0 is default. 2.0 plays the animation twice as fast")]
+    public float baseAnimationSpeed = 1.0f;
+    public bool applyRootMotion = false;
 
     [Header("Implementation Parts")]
     public string skillAnimation;

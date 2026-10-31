@@ -6,8 +6,9 @@ public class CharacterAnimationManager : MonoBehaviour
 {
     CharacterManager character;
 
-    int vertical;
-    int horizontal;
+    [HideInInspector] public int vertical;
+    [HideInInspector] public int horizontal;
+    [HideInInspector] public int moveSpeedMult;
 
     [Header("Animations State Tracking")]
     public string currentAnimation;
@@ -17,7 +18,7 @@ public class CharacterAnimationManager : MonoBehaviour
     [Header("Animation Tolerance")]
     public float idleToWalkTolerance = 0.1f;
 
-    int moveSpeedMult;
+    
 
 
     [Header("Damping")]
@@ -60,7 +61,7 @@ public class CharacterAnimationManager : MonoBehaviour
         character.animator.SetFloat(vertical, v, dampTime, Time.deltaTime);
 
         //Increase Movement Animator State by same percent as our base movepseed amount
-        float currentMoveSpeedMultiplier = character.characterStatsManager.moveSpeedMultiplier;
+        float currentMoveSpeedMultiplier = character.characterStatsManager.moveSpeedMultiplier.Value;
         character.animator.SetFloat(moveSpeedMult, currentMoveSpeedMultiplier);
     }
     private float SnapAxis(float value)
@@ -75,14 +76,29 @@ public class CharacterAnimationManager : MonoBehaviour
         return 1.0f * sign;
     }
 
-    public virtual void PlayActionAnimation(string targetAnimation, bool isPerformingAction, bool applyRootMotion = false, bool canRotate = false, bool canMove = false)
+    public virtual void PlayActionAnimation(string targetAnimation, bool isPerformingAction, bool applyRootMotion = false, 
+        bool canRotate = false, bool canMove = false, float animationSpeed = 1f)
     {
         character.isPerformingAction = isPerformingAction;
         character.canMove = canMove;
         character.canRotate = canRotate;
-
         character.applyRootMotion = applyRootMotion;
-        character.animator.CrossFade(targetAnimation, 0.2f);
+
+        if (applyRootMotion)
+        {
+            canMove = false;
+        }
+
+        character.animator.SetFloat("ActionSpeed", animationSpeed);
+        if (canMove && !applyRootMotion)
+        {
+            character.animator.CrossFade(targetAnimation + "_Upper", 0.2f);
+        }
+        else
+        {
+            character.animator.CrossFade(targetAnimation, 0.2f);
+        }
+
         currentAnimation = targetAnimation;
     }
 }
