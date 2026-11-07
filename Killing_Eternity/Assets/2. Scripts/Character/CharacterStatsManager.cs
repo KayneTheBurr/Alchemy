@@ -22,6 +22,7 @@ public class CharacterStatsManager : MonoBehaviour
     public float baseStamina = 100;
 
     [Header("Damage Multipliers (1.0 = 100%)")]
+    public CharacterStat allDamageModifier = new CharacterStat(1f);
     public CharacterStat spellDamageModifier = new CharacterStat(1f);
     public CharacterStat attackDamageModifier = new CharacterStat(1f);
 
@@ -50,6 +51,14 @@ public class CharacterStatsManager : MonoBehaviour
     public CharacterStat iceDefense = new CharacterStat(0f);
     public CharacterStat sparkDefense = new CharacterStat(0f);
     public CharacterStat stoneDefense = new CharacterStat(0f);
+
+    [Header("Elemental Damage Taken Multipliers")]
+    public CharacterStat bloodDamageTakenMult = new CharacterStat(1f);
+    public CharacterStat bileDamageTakenMult = new CharacterStat(1f);
+    public CharacterStat fireDamageTakenMult = new CharacterStat(1f);
+    public CharacterStat iceDamageTakenMult = new CharacterStat(1f);
+    public CharacterStat sparkDamageTakenMult = new CharacterStat(1f);
+    public CharacterStat stoneDamageTakenMult = new CharacterStat(1f);
 
     [Header("Ailment Thresholds (Status Resistance)")]
     [Tooltip("How much buildup is required to trigger the status effect.")]
@@ -248,6 +257,20 @@ public class CharacterStatsManager : MonoBehaviour
             default: return 0f;
         }
     }
+    public float GetElementalDamageTaken(Element element)
+    {
+        switch (element)
+        {
+            case Element.Blood: return bloodDamageTakenMult.Value;
+            case Element.Bile: return bileDamageTakenMult.Value;
+            case Element.Fire: return fireDamageTakenMult.Value;
+            case Element.Ice: return iceDamageTakenMult.Value;
+            case Element.Spark: return sparkDamageTakenMult.Value;
+            case Element.Stone: return stoneDamageTakenMult.Value;
+            default: return 0f;
+        }
+    }
+
     public float GetAilmentThreshold(Element element)
     {
         switch (element)

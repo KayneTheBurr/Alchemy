@@ -7,7 +7,7 @@ namespace KE
         public Faction MyFaction { get; }
         bool IsDead();
 
-        void TakeDamage(float damage, Element element, IDamageable damageSource = null);
+        void TakeDamage(float damage, Element element, IDamageable damageSource = null, bool isDoT = false);
 
         Transform GetTransform();
 

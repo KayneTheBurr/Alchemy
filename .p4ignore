@@ -29,6 +29,7 @@ Thumbs.db
 *.csproj
 *.unityproj
 *.sln
+*.slnx
 *.suo
 *.tmp
 *.user

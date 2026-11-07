@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c54d93f83ab19c4f9881be74e5bb7f0, type: 3}
+  m_Name: Alchemy Tuning
+  m_EditorClassIdentifier: Assembly-CSharp::AlchemyTuningData
+  burnDuration: 3
+  burnDamageRatio: 0.3
+  burnVFXPrefab: {fileID: 2873451926720880288, guid: 4f7f2069758ba7d47991fc1899dca96f, type: 3}
+  chillDuration: 6
+  chillAmount: 0.3
+  chillVFXPrefab: {fileID: 0}
+  thermalShockBaseDamage: 100
+  thermalShockRadius: 2
+  thermalShockVFX: {fileID: 486884923824011398, guid: 1a957eab65a57af4894c503616f791c0, type: 3}
+  wetDuration: 8
+  wetSparkVulnerability: 0.3
+  wetIceVulnerability: 0.3
+  wetFireMitigation: -0.3
+  wetVFXPrefab: {fileID: 8105799683782108566, guid: 9ba24b2b68d39ed42b4b63ef13675fd2, type: 3}
+  frozenDuration: 4
+  frozenVFXPrefab: {fileID: 4293332855471414272, guid: 769c05c97023ad643bcf867a5df1a201, type: 3}

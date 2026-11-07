@@ -6,6 +6,9 @@ namespace KE
     {
         public static AlchemyEngine instance;
 
+        [Header("Status Tuning")]
+        public AlchemyTuningData tuningData;
+
         private void Awake()
         {
             if (instance == null) instance = this;
@@ -35,15 +38,15 @@ namespace KE
             }
         }
 
-        public Status CheckForElementalReaction(Status newEffect, Status oldEffect)
+        public Status CheckForElementalReaction(Status incomingEffect, Status existingEffect)
         {
             var output = Status.None;
 
-            switch (newEffect)
+            switch (incomingEffect)
             {
                 // --- BLEED TRIGGERED EFFECTS ---
                 case Status.Bleed:
-                    switch(oldEffect)
+                    switch(existingEffect)
                     {
                         case Status.Bleed: output = Status.Hemmorhage; break;
                         case Status.Shock: output = Status.Galvanize; break;
@@ -54,7 +57,7 @@ namespace KE
 
                 // --- TOXIN TRIGGERED EFFECTS ---
                 case Status.Toxin:
-                    switch (oldEffect)
+                    switch (existingEffect)
                     {
                         case Status.Freeze: output = Status.Dissolve; break;
                         case Status.Fissure: output = Status.FissureInfusion; break;
@@ -64,7 +67,7 @@ namespace KE
 
                 // --- BURN TRIGGERED EFFECTS ---
                 case Status.Burn:
-                    switch (oldEffect)
+                    switch (existingEffect)
                     {
                         case Status.Chill: output = Status.Wet; break;
                         case Status.Sunder: output = Status.Shell; break;
@@ -76,7 +79,7 @@ namespace KE
 
                 // --- CHILL TRIGGERED EFFECTS ---
                 case Status.Chill:
-                    switch (oldEffect)
+                    switch (existingEffect)
                     {
                         case Status.Burn: output = Status.ThermalShock; break;
                         case Status.Wet: output = Status.Freeze; break;
@@ -89,7 +92,7 @@ namespace KE
 
                 // --- SHOCK TRIGGERED EFFECTS
                 case Status.Shock:
-                    switch (oldEffect)
+                    switch (existingEffect)
                     {
                         case Status.Bleed: output = Status.Galvanize; break;
                         case Status.Sunder: output = Status.Battery; break;
@@ -99,7 +102,7 @@ namespace KE
 
                 // --- SUNDER TRIGGERED EFFECTS ---
                 case Status.Sunder:
-                    switch (oldEffect)
+                    switch (existingEffect)
                     {
                         case Status.Burn: output = Status.Molten; break;
                         case Status.Sunder: output = Status.Fissure; break;

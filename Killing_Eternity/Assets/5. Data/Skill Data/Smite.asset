@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7492f2d7266fe2c45955d8a0787ad9c2, type: 3}
+  m_Name: Smite
+  m_EditorClassIdentifier: Assembly-CSharp::Skill
+  skillName: Smite
+  skillDescription: 
+  skillID: 2
+  skillIcon: {fileID: 0}
+  skillElement: 2
+  skillTags: 0100000005000000
+  spawnLocation: 4
+  baseSkillCost: 10
+  baseResourceType: 2
+  baseDamage: 60
+  baseMeleeRange: 0
+  baseCooldown: 0
+  baseDuration: 0
+  projectileSpeed: 0
+  basePierceCount: 0
+  baseForkCount: 0
+  baseChainCount: 0
+  baseAdditionalProjectiles: 0
+  baseAoeRadius: 3.5
+  baseAoeDamageMult: 0.5
+  baseCritChance: 0.05
+  baseCritDamage: 1.5
+  baseStatusMod: 10
+  canMoveWhileCasting: 1
+  canRotateWhileCasting: 0
+  baseAnimationSpeed: 1
+  applyRootMotion: 0
+  moveSpeedPenalty: 0.1
+  skillAnimation: Buff_01
+  skillPrefab: {fileID: 1104288059557856606, guid: 89981528c6d4b1a42aefce6b7797994e, type: 3}

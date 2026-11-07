@@ -3,19 +3,22 @@ using UnityEngine;
 
 public class ChillEffect : StatusEffect
 {
-    public float slowPercentage = -0.30f;
+    //public float slowPercentage = -0.30f;
     private CharacterManager affectedCharacter;
 
     public ChillEffect()
     {
         statusType = Status.Chill;
-        duration = 6f;
+        duration = AlchemyEngine.instance.tuningData.chillDuration;
     }
 
     protected override void StartEffect()
     {
-        Debug.Log("Chill Applied");
+        //Debug.Log("Chill Applied");
         MonoBehaviour targetMono = target as MonoBehaviour;
+
+        float slowPercentage = -1 * AlchemyEngine.instance.tuningData.chillAmount;
+
         if (targetMono != null)
         {
             affectedCharacter = targetMono.GetComponent<CharacterManager>();

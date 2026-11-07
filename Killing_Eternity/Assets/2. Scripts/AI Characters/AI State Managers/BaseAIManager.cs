@@ -36,5 +36,9 @@ namespace KE
         {
         }
 
+        public virtual void ShoutToAllies(IDamageable detectedTarget)
+        {
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using KE;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -51,8 +52,21 @@ public class OverlayFX : MonoBehaviour
     }
 
 #if UNITY_EDITOR
-    private void OnDisable() => StripPreviewOverlay();
-    private void OnDestroy() => StripPreviewOverlay();
+    private void OnDisable()
+    {
+#if UNITY_EDITOR
+        if (!Application.isPlaying) StripPreviewOverlay();
+#endif
+        if (Application.isPlaying) StripRuntimeOverlay();
+    }
+
+    private void OnDestroy()
+    {
+#if UNITY_EDITOR
+        if (!Application.isPlaying) StripPreviewOverlay();
+#endif
+        if (Application.isPlaying) StripRuntimeOverlay();
+    }
 #endif
 
 #if UNITY_EDITOR
@@ -90,6 +104,8 @@ public class OverlayFX : MonoBehaviour
         }
     }
 
+    
+
     private static void OnSelectionChanged()
     {
         if (Selection.activeObject != null) return;
@@ -125,6 +141,13 @@ public class OverlayFX : MonoBehaviour
         s_PreviewInjected.Remove(rend);
     }
 #endif
+
+    public void InitializeWithMesh()
+    {
+        EnsureRuntimeOverlay();
+        SyncParticleSystems();
+    }
+
     private bool IsOverlayMatch(Material m) =>
         m && m.shader == overlayMaterial?.shader &&
         m.name.StartsWith(overlayMaterial.name);
@@ -172,19 +195,25 @@ public class OverlayFX : MonoBehaviour
     {
         var rend = targetRenderer;
         if (rend == null) return;
+
         var mats = rend.sharedMaterials;
+        var newMats = new List<Material>();
         bool changed = false;
 
         for (int i = 0; i < mats.Length; i++)
         {
-            if (mats[i] && mats[i].name.EndsWith("(Runtime)"))
+            if (mats[i] != null && mats[i].name.EndsWith("(Runtime)"))
             {
-                mats[i] = null;
                 changed = true;
+            }
+            else
+            {
+                // keep the original materials and remove the material slot
+                newMats.Add(mats[i]);
             }
         }
 
-        if (changed) rend.sharedMaterials = mats;
+        if (changed) rend.sharedMaterials = newMats.ToArray();
 
 #if UNITY_EDITOR
         s_RuntimeInjected.Remove(rend);
@@ -198,16 +227,25 @@ public class OverlayFX : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void StripRuntimeOverlaysBeforePlay()
     {
+
         foreach (var rend in Object.FindObjectsByType<Renderer>(FindObjectsSortMode.None))
         {
             var mats = rend.sharedMaterials;
+            var newMats = new List<Material>();
             bool changed = false;
+
             for (int i = 0; i < mats.Length; i++)
-                if (mats[i] && mats[i].name.EndsWith("(Runtime)"))
+            {
+                if (mats[i] != null && mats[i].name.EndsWith("(Runtime)"))
                 {
-                    mats[i] = null;
-                    changed = true;
+                    changed = true; // Drop it
                 }
+                else
+                {
+                    newMats.Add(mats[i]); // Keep it
+                }
+            }
+
             if (changed) rend.sharedMaterials = mats;
         }
         s_RuntimeInjected.Clear();

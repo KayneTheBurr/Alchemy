@@ -1738,12 +1738,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f58f394ab387ef74fb24003d594bfc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KE.StatusManager
-  bleedThreshold: 100
-  toxinThreshold: 100
-  burnThreshold: 100
-  chillThreshold: 100
-  shockThreshold: 100
-  sunderThreshold: 100
+  bleedThreshold:
+    baseValue: 100
+  toxinThreshold:
+    baseValue: 100
+  burnThreshold:
+    baseValue: 100
+  chillThreshold:
+    baseValue: 100
+  shockThreshold:
+    baseValue: 100
+  sunderThreshold:
+    baseValue: 100
   bleedStackSizeModifier: 0
   toxinStackSizeModifier: 0
   burnStackSizeModifier: 0
@@ -1782,6 +1788,7 @@ MonoBehaviour:
   isPerformingAction: 0
   isInvincible:
     _value: 0
+  mainMesh: {fileID: 0}
   playerMovementManager: {fileID: 0}
   playerAnimationManager: {fileID: 0}
   playerStatsManager: {fileID: 0}
@@ -1816,6 +1823,8 @@ MonoBehaviour:
   baseHealth: 100
   baseMana: 100
   baseStamina: 100
+  allDamageModifier:
+    baseValue: 1
   spellDamageModifier:
     baseValue: 1
   attackDamageModifier:
@@ -1860,6 +1869,18 @@ MonoBehaviour:
     baseValue: 0
   stoneDefense:
     baseValue: 0
+  bloodDamageTakenMult:
+    baseValue: 1
+  bileDamageTakenMult:
+    baseValue: 1
+  fireDamageTakenMult:
+    baseValue: 1
+  iceDamageTakenMult:
+    baseValue: 1
+  sparkDamageTakenMult:
+    baseValue: 1
+  stoneDamageTakenMult:
+    baseValue: 1
   bloodThreshold:
     baseValue: 100
   bileThreshold:
@@ -1950,6 +1971,8 @@ MonoBehaviour:
       baseValue: 0
     activeAnimationSpeed:
       baseValue: 0
+    activeMoveSpeedPenalty:
+      baseValue: 0
   rightWeaponSpawnPoint: {fileID: 8698009128939084272}
   leftWeaponSpawnPoint: {fileID: 1905286839469345416}
   inCombat:
@@ -1965,8 +1988,19 @@ MonoBehaviour:
   - 0
   player: {fileID: 0}
   testFireballSO: {fileID: 11400000, guid: 5ec4bee2a1ec4f2448052998aa91bfd1, type: 2}
+  testSmiteSO: {fileID: 11400000, guid: 6a0222b949fea6444ba08c552c561e76, type: 2}
+  testIceLanceSO: {fileID: 11400000, guid: bc9b2a8905b8fc046bc75a149f2630b0, type: 2}
   testIceConversionNode: {fileID: 0}
   testIceDamageNode: {fileID: 0}
+  hasFireSkill: 0
+  hasIceSkill: 0
+  enemyTargetingDistance: 16
+  environmentTargetDistance: 6
+  targetStickiness: 60
+  dotProductMult: 75
+  enemyTargetScoreAdditive: 25
+  distanceMultiplier: 1
+  mouseForgivenessRadius: 0.25
 --- !u!114 &3682157568310722814
 MonoBehaviour:
   m_ObjectHideFlags: 0

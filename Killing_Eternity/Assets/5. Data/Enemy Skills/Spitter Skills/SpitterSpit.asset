@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7492f2d7266fe2c45955d8a0787ad9c2, type: 3}
+  m_Name: SpitterSpit
+  m_EditorClassIdentifier: Assembly-CSharp::Skill
+  skillName: SpitterSpit
+  skillDescription: 
+  skillID: 1
+  skillIcon: {fileID: 0}
+  skillElement: 1
+  skillTags: 010000000400000005000000
+  spawnLocation: 1
+  baseSkillCost: 10
+  baseResourceType: 2
+  baseDamage: 20
+  baseMeleeRange: 0
+  baseCooldown: 1.5
+  baseDuration: 2
+  projectileSpeed: 10
+  basePierceCount: 0
+  baseForkCount: 0
+  baseChainCount: 0
+  baseAdditionalProjectiles: 0
+  baseAoeRadius: 2
+  baseAoeDamageMult: 0.75
+  baseCritChance: 0.05
+  baseCritDamage: 1.5
+  baseStatusMod: 4
+  canMoveWhileCasting: 0
+  canRotateWhileCasting: 1
+  baseAnimationSpeed: 4
+  applyRootMotion: 0
+  moveSpeedPenalty: 0.5
+  skillAnimation: Ranged_Attack_01
+  skillPrefab: {fileID: 6554165863889378538, guid: b9fef135cb1a2ac62bb6f1289aafb3ec, type: 3}

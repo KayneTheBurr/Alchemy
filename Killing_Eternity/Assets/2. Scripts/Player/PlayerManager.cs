@@ -52,7 +52,7 @@ namespace KE
         {
             base.OnIsMovingChanged(oldStatus, newStatus);
         }
-        public override void TakeDamage(float damageValue, Element element, IDamageable damageSource = null)
+        public override void TakeDamage(float damageValue, Element element, IDamageable damageSource = null, bool isDoT = false)
         {
             base.TakeDamage(damageValue, element);
 
@@ -60,7 +60,10 @@ namespace KE
             float effectiveResistance = Mathf.Clamp(rawResistance, -100f, 75f);
 
             float damageMultiplier = 1f - (effectiveResistance / 100f);
-            float finalDamage = Mathf.Max(damageValue * damageMultiplier, 0f);
+
+            float damageAmplifirer = characterStatsManager.GetElementalDamageModifier(element);
+
+            float finalDamage = Mathf.Max(damageValue * damageMultiplier * damageAmplifirer, 0f);
 
             characterStatsManager.currentHealth.Value -= finalDamage;
 

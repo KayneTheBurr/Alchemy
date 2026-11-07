@@ -82,7 +82,7 @@ public class NormalAIManager : BaseAIManager
             currentState = SwitchState(NormalAIState.Chase);
         }
     }
-    private void ShoutToAllies(IDamageable detectedTarget)
+    public override void ShoutToAllies(IDamageable detectedTarget)
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, allyNotifyRadius, WorldUtilityManager.instance.GetCharacterLayers());
 

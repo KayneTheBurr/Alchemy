@@ -1,7 +1,15 @@
 fileFormatVersion: 2
 guid: 6c0a9fba210620a4e815cd31e5a10c42
+AssetOrigin:
+  serializedVersion: 1
+  productId: 5730
+  packageName: HEROIC FANTASY CREATURES FULL PACK VOL 1
+  packageVersion: 2.51
+  assetPath: Assets/HeroicFantasyCreaturesFullPackVol1/Living Dead Pack/Ghoul/FBX
+    Files/SK_Ghoul.FBX
+  uploadId: 946676
 ModelImporter:
-  serializedVersion: 24501
+  serializedVersion: 24200
   internalIDToNameTable:
   - first:
       1: 100000
@@ -425,7 +433,6 @@ ModelImporter:
     materialName: 1
     materialSearch: 1
     materialLocation: 1
-    searchTexturesGlobally: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -446,7 +453,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 7400000
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -476,8 +512,6 @@ ModelImporter:
     generateMeshLods: 0
     meshLodGenerationFlags: 0
     maximumMeshLod: -1
-    importUVs: -1
-    importVertexColors: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -497,7 +531,6 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-    calculateBlendshapeNormalsDeltaFromImportedNormals: 1
   referencedClips: []
   importAnimation: 1
   humanDescription:
@@ -528,11 +561,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 5730
-  packageName: HEROIC FANTASY CREATURES FULL PACK VOL 1
-  packageVersion: 2.51
-  assetPath: Assets/HeroicFantasyCreaturesFullPackVol1/Living Dead Pack/Ghoul/FBX
-    Files/SK_Ghoul.FBX
-  uploadId: 946676

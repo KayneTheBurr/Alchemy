@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8934925750531947080}
   - component: {fileID: 7242572147366139977}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Melee Attack Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -17,7 +17,7 @@ namespace KE
         /// <summary>
         /// Calculate and applies all hit damage, DoT, and buildup to a target
         /// </summary>
-        protected virtual void ApplySkillDamageAndStatus(IDamageable target, bool isAOESplash = false)
+        protected virtual void ApplySkillDamageAndStatus(IDamageable target, bool isAOESplash = false, float dynamicHitMultiplier = 1f)
         {
             if (target == null || skillData == null) return;
 
@@ -32,9 +32,9 @@ namespace KE
             foreach (var kvp in hitDamage)
             {
                 Element el = kvp.Key;
-                float damageAmount = kvp.Value;
-                float buildupAmount = buildup.ContainsKey(el) ? buildup[el] : 0f;
-                float dotAmount = dotPayload.ContainsKey(el) ? dotPayload[el] : 0f;
+                float damageAmount = kvp.Value * dynamicHitMultiplier;
+                float buildupAmount = (buildup.ContainsKey(el) ? buildup[el] : 0f) * dynamicHitMultiplier;
+                float dotAmount = (dotPayload.ContainsKey(el) ? dotPayload[el] : 0f) * dynamicHitMultiplier;
 
                 if (damageAmount > 0)
                 {

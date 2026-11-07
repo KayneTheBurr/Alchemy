@@ -5,6 +5,7 @@ namespace KE
 {
     public class PlayerMovementManager : CharacterMovementManager
     {
+        #region Variables
         PlayerManager player;
 
         [Header("Movement Settings")]
@@ -22,9 +23,9 @@ namespace KE
         public float dodgeDuration = 0.25f;
         public float dodgeSpeed = 15f;
         public float dodgeIFrameDuration = 0.1f;
+        #endregion
 
-
-
+        #region Core Functions
         protected override void Awake()
         {
             base.Awake();
@@ -49,12 +50,35 @@ namespace KE
             HandleMovement();
             HandleRotation();
         }
+        #endregion
 
+        #region Core Movement Functions
         private void HandleMovement()
         {
             if (player.isDead) return;
-            if (!player.canMove || player.isPerformingAction) return;
             if (isDodging) return;
+
+
+            //allow player movement if performing action during a skill that allows movement
+            bool canMoveDuringAction = false;
+            if (player.isPerformingAction && player.characterCombatManager.currentCastingSkill != null)
+            {
+                // check for missing SO 
+                if (player.characterCombatManager.currentCastingSkill.baseSkill != null)
+                {
+                    canMoveDuringAction = player.characterCombatManager.currentCastingSkill.baseSkill.canMoveWhileCasting;
+                }
+                else
+                {
+                    Debug.LogWarning("BaseSkill is null on the current casting skill!");
+                }
+            }
+
+            //else root in place temporarily 
+            if (!player.canMove || (player.isPerformingAction && !canMoveDuringAction))
+            {
+                return;
+            }
 
             bool currentlyMoving = moveDirection != Vector3.zero;
             if (isMoving.Value != currentlyMoving)
@@ -79,11 +103,26 @@ namespace KE
                     baseSpeed = runSpeed;
                 }
             }
+
             float finalSpeed = baseSpeed * player.playerStatsManager.moveSpeedMultiplier.Value;
+
+            Vector3 animatedMoveDirection = moveDirection;
+            //apply the movespeed slow while casting ehre
+            if (player.isPerformingAction && canMoveDuringAction)
+            {
+                float speedPenalty = player.characterCombatManager.currentCastingSkill.activeMoveSpeedPenalty.Value;
+
+                finalSpeed *= speedPenalty;
+
+                // use the same modifier on the blend tree as well 
+                animatedMoveDirection *= speedPenalty;
+            }
+
+
             player.characterController.maxWalkSpeed = finalSpeed;
 
             player.characterController.SetMovementDirection(moveDirection.normalized);
-            player.playerAnimationManager.UpdateAnimatorMovementParameters(moveDirection, isSprinting);
+            player.playerAnimationManager.UpdateAnimatorMovementParameters(animatedMoveDirection, isSprinting);
         }
         private void HandleRotation()
         {
@@ -92,6 +131,8 @@ namespace KE
             if (isDodging) return;
 
             Vector3 targetLookDir = Vector3.zero;
+
+            // If using input
             if (InputManager.instance.lookInputActive)
             {
                 player.characterController.SetRotationMode(ECM2.Character.RotationMode.Custom);
@@ -103,14 +144,27 @@ namespace KE
                 else
                 {
                     Ray ray = PlayerCamera.instance.realCam.ScreenPointToRay(InputManager.instance.lookInput);
-                    Plane groundPlane = new Plane(Vector3.up, transform.position);
 
-                    if (groundPlane.Raycast(ray, out float distance))
+                    LayerMask aimMask = WorldUtilityManager.instance.GetCharacterLayers() | 
+                        WorldUtilityManager.instance.GetEnviroLayers();
+                    
+                    // if we find a target, use thier position here
+                    if (Physics.Raycast(ray, out RaycastHit hit, 150f, aimMask))
                     {
-                        Vector3 hitPoint = ray.GetPoint(distance);
-                        targetLookDir = (hitPoint - transform.position);  
+                        targetLookDir = (hit.point - transform.position);
                         targetLookDir.y = 0;
-                        targetLookDir.Normalize();
+                    }
+
+                    // if we find nothing, then create a hit location in space
+                    else
+                    {
+                        Plane groundPlane = new Plane(Vector3.up, transform.position);
+                        if (groundPlane.Raycast(ray, out float distance))
+                        {
+                            Vector3 hitPoint = ray.GetPoint(distance);
+                            targetLookDir = (hitPoint - transform.position);
+                            targetLookDir.y = 0;
+                        }
                     }
                 }
                 if (targetLookDir != Vector3.zero)
@@ -120,12 +174,36 @@ namespace KE
                     player.characterController.SetRotation(newRotation);
                 }
             }
+            // if no input and we DO have a target
+            else if (player.characterCombatManager.currentTarget != null
+                && player.IsTargetValid(player.characterCombatManager.currentTarget))
+            {
+                player.characterController.SetRotationMode(ECM2.Character.RotationMode.Custom);
+
+                targetLookDir = player.characterCombatManager.currentTarget.GetTransform().position - transform.position;
+                targetLookDir.y = 0;
+            }
+
+            // if we had either a target OR were inputting a look direction:
+            if (targetLookDir != Vector3.zero)
+            {
+                targetLookDir.Normalize();
+                Quaternion targetRotation = Quaternion.LookRotation(targetLookDir);
+                Quaternion newRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                player.characterController.SetRotation(newRotation);
+            }
+
+            // if no input or target, just use move direction
             else
             {
                 player.characterController.rotationRate = rotationSpeed;
                 player.characterController.SetRotationMode(ECM2.Character.RotationMode.OrientRotationToMovement);
             }
+
         }
+        #endregion
+
+        #region Dodge Functions
         public override void AttemptToDodge()
         {
             if (player.isPerformingAction || isDodging) return;
@@ -183,6 +261,9 @@ namespace KE
             gameObject.layer = originalLayer;
             isDodging = false;
         }
+        #endregion
+
+        
     }
 }
 

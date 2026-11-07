@@ -28,10 +28,12 @@ public class ActiveSkillInstance
     public CharacterStat activeProjectileSpeed;
     public CharacterStat activeStatusMod;
     public CharacterStat activeAnimationSpeed;
+    public CharacterStat activeMoveSpeedPenalty;
 
     public ActiveSkillInstance(Skill skillSO)
     {
         baseSkill = skillSO;
+        activeTags = new List<SkillTag>(skillSO.skillTags);
 
         // State Initialization
         activeResourceType = skillSO.baseResourceType;
@@ -51,6 +53,7 @@ public class ActiveSkillInstance
         activeProjectileSpeed = new CharacterStat(skillSO.projectileSpeed);
         activeAnimationSpeed = new CharacterStat(skillSO.baseAnimationSpeed);
         activeStatusMod = new CharacterStat(skillSO.baseStatusMod);
+        activeMoveSpeedPenalty = new CharacterStat(skillSO.moveSpeedPenalty);
     }
 
     public bool CanIPerformSkill(CharacterManager character)
@@ -127,6 +130,35 @@ public class ActiveSkillInstance
             case SkillSpawnLocation.TargetEnemy:
                 // need targetting to do this 
                 if (character.characterCombatManager.currentTarget != null)
+                {
+                    spawnPos = character.characterCombatManager.currentTarget.GetTransform().position;
+                }
+                break;
+            case SkillSpawnLocation.CursorLocation:
+                if (character.characterCombatManager.currentTarget == null)
+                {
+                    if(InputManager.instance.isGamepadActive)
+                    {
+                        spawnPos = character.transform.position + character.transform.forward * 3f;
+                    }
+                    else
+                    {
+                        Ray ray = PlayerCamera.instance.realCam.ScreenPointToRay(InputManager.instance.lookInput);
+
+                        LayerMask cursorMask = WorldUtilityManager.instance.GetEnviroLayers() | 
+                            WorldUtilityManager.instance.GetCharacterLayers();
+
+                        if (Physics.Raycast(ray, out RaycastHit hit, 100f, cursorMask))
+                        {
+                            spawnPos = hit.point;
+                        }
+                        else
+                        {
+                            spawnPos = character.transform.position + character.transform.forward * 3f;
+                        }
+                    }
+                }
+                else
                 {
                     spawnPos = character.characterCombatManager.currentTarget.GetTransform().position;
                 }
@@ -214,9 +246,22 @@ public class ActiveSkillInstance
 
         if (character != null && character.characterStatsManager != null)
         {
+            //always use the all damage multiplier
+            hitMultiplier *= character.characterStatsManager.allDamageModifier.Value;
+
             // Add Spell or Attack damage, dont affect buildup
             // cehck for skill tags attack vs spell vs whatever later just globally using spell damge for now 
-            hitMultiplier *= character.characterStatsManager.spellDamageModifier.Value;
+
+            //Really large if statement for different tags here?
+            //if Tag.Fire then include fire damage, if Tag.Spell then use spell damage etc.
+            if(activeTags.Contains(SkillTag.Spell))
+            {
+                hitMultiplier *= character.characterStatsManager.spellDamageModifier.Value;
+            }
+            if (activeTags.Contains(SkillTag.Attack))
+            {
+                hitMultiplier *= character.characterStatsManager.attackDamageModifier.Value;
+            }
         }
 
         List<Element> keys = new List<Element>(hitDamage.Keys);
@@ -242,7 +287,8 @@ public class ActiveSkillInstance
         if (character != null && character.characterStatsManager != null)
         {
             float dotMultiplier = character.characterStatsManager.dotDamageMultiplier.Value;
-            
+            dotMultiplier *= character.characterStatsManager.allDamageModifier.Value;
+
             List<Element> keys = new List<Element>(dotPayload.Keys);
             foreach (Element el in keys)
             {

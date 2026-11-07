@@ -46,7 +46,7 @@ namespace KE
                 Destroy(gameObject);
             }
         }
-        public override void TakeDamage(float damageValue, Element element, IDamageable damageSource = null)
+        public override void TakeDamage(float damageValue, Element element, IDamageable damageSource = null, bool isDoT = false)
         {
             base.TakeDamage(damageValue, element);
 
@@ -71,6 +71,7 @@ namespace KE
                     if (WorldUtilityManager.instance.CanIDamageThisTarget(MyFaction, damageSource.MyFaction))
                     {
                         aiManager.AlertToTarget(damageSource);
+                        aiManager.ShoutToAllies(damageSource);
                     }
                 }
             }

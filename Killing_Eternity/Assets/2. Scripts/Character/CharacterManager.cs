@@ -36,6 +36,8 @@ namespace KE
         public bool isPerformingAction;
         public ObservableVariable<bool> isInvincible = new ObservableVariable<bool>();
 
+        public SkinnedMeshRenderer mainMesh;
+
         #region Core Functions
         protected virtual void Awake()
         {
@@ -92,7 +94,7 @@ namespace KE
             yield return null;
         }
 
-        public virtual void TakeDamage(float damageValue, Element element, IDamageable damageSource = null)
+        public virtual void TakeDamage(float damageValue, Element element, IDamageable damageSource = null, bool isDoT = false)
         {
             if (isDead.Value) return;
         }
@@ -104,6 +106,11 @@ namespace KE
         public virtual void ApplyBuildup(Element element, float buildupAmount, float dotAmount, IDamageable source = null)
         {
             statusManager.AddBuildup(element, buildupAmount, dotAmount, source);
+        }
+
+        public bool IsTargetValid(IDamageable target)
+        {
+            return target != null && (target as UnityEngine.Object) != null && !target.IsDead();
         }
 
     }

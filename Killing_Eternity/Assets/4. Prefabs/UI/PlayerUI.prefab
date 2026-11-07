@@ -74,7 +74,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -130,6 +130,10 @@ PrefabInstance:
     - target: {fileID: 208103229428788360, guid: 259586c3c97af9545ab903789387afde, type: 3}
       propertyPath: m_Name
       value: Player HUD Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059837370046970803, guid: 259586c3c97af9545ab903789387afde, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 1684925094511360519, guid: 259586c3c97af9545ab903789387afde, type: 3}
       propertyPath: m_AnchorMax.x

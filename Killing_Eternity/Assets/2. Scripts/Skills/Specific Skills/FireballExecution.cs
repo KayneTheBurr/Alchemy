@@ -44,15 +44,32 @@ namespace KE
             if(distanceThisFrame > 0)
             {
                 //raycast between the two positions
-                if (Physics.SphereCast(previousPosition, projectileRadius, direction.normalized, out RaycastHit hit, distanceThisFrame))
+                RaycastHit[] hits = Physics.SphereCastAll(previousPosition, projectileRadius, direction.normalized, distanceThisFrame);
+
+                //sort the things we hit by distance
+                System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+
+                foreach (RaycastHit hit in hits)
                 {
-                    // Ignore the caster and trigger volumes
-                    if (hit.collider.gameObject != character.gameObject && !hit.collider.isTrigger)
+                    if (character.IsDead() || character == null) continue;
+
+                    // ignore triggers and ourselves
+                    if (hit.collider.gameObject == character.gameObject || hit.collider.isTrigger) continue;
+
+                    IDamageable hitTarget = hit.collider.GetComponent<IDamageable>();
+                    if (hitTarget != null)
                     {
-                        // we hit something, then trigger the effect
-                        HandleImpact(hit.collider, hit.point);
-                        return;
+                        // projectile will phase through allies
+                        if (!WorldUtilityManager.instance.CanIDamageThisTarget(character.MyFaction, hitTarget.MyFaction))
+                        {
+                            continue;
+                        }
                     }
+
+                    HandleImpact(hit.collider, hit.point);
+
+                    previousPosition = transform.position;
+                    return;
                 }
             }
             
@@ -62,7 +79,17 @@ namespace KE
         private void OnTriggerEnter(Collider other)
         {
             //OnTriggerEnter can catch and things that the sphere cast might miss, so the skill *should* never phase through things
-            if (other.gameObject == character.gameObject || other.isTrigger) return;
+            if (hasDetonated || other.gameObject == character.gameObject || other.isTrigger) return;
+
+            IDamageable hitTarget = other.GetComponent<IDamageable>();
+            if (hitTarget != null)
+            {
+                // projectile will phase through allies
+                if (!WorldUtilityManager.instance.CanIDamageThisTarget(character.MyFaction, hitTarget.MyFaction))
+                {
+                    return;
+                }
+            }
 
             Vector3 impactPoint = other.ClosestPoint(transform.position);
             HandleImpact(other, impactPoint);
@@ -99,8 +126,7 @@ namespace KE
             {
                 Vector3 vfxSpawnPos = detonationPoint;
 
-                // this should likely be included in the world utility manager now instead of hard coded
-                int groundLayerMask = LayerMask.GetMask("Default");
+                int groundLayerMask = WorldUtilityManager.instance.GetEnviroLayers();
 
                 if (Physics.Raycast(detonationPoint, Vector3.down, out RaycastHit hit, 10f, groundLayerMask))
                 {
@@ -123,10 +149,13 @@ namespace KE
                 IDamageable splashTarget = hit.GetComponent<IDamageable>();
 
                 //must be a damageable target and not the one directly hit by the skill 
-                if (splashTarget != null && splashTarget != excludeTarget)
+                if (splashTarget != null && splashTarget != excludeTarget && !splashTarget.IsDead())
                 {
-                    ApplySkillDamageAndStatus(splashTarget, true);
-                    Debug.Log($"Dealt Splash damage to {splashTarget}");
+                    if (WorldUtilityManager.instance.CanIDamageThisTarget(character.MyFaction, splashTarget.MyFaction))
+                    {
+                        ApplySkillDamageAndStatus(splashTarget, isAOESplash: true);
+                        Debug.Log($"Dealt Splash damage to {splashTarget}");
+                    }
                 }
             }
         }

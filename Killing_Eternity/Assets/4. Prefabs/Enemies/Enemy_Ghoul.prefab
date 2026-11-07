@@ -1709,6 +1709,7 @@ GameObject:
   - component: {fileID: 6193260130887614785}
   - component: {fileID: 6267152297686553192}
   - component: {fileID: 1899235790941656480}
+  - component: {fileID: 4101222906559906301}
   m_Layer: 6
   m_Name: Enemy_Ghoul
   m_TagString: Untagged
@@ -1747,12 +1748,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f58f394ab387ef74fb24003d594bfc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KE.StatusManager
-  bleedThreshold: 100
-  toxinThreshold: 100
-  burnThreshold: 100
-  chillThreshold: 100
-  shockThreshold: 100
-  sunderThreshold: 100
+  bleedThreshold:
+    baseValue: 100
+  toxinThreshold:
+    baseValue: 100
+  burnThreshold:
+    baseValue: 100
+  chillThreshold:
+    baseValue: 100
+  shockThreshold:
+    baseValue: 100
+  sunderThreshold:
+    baseValue: 100
   bleedStackSizeModifier: 0
   toxinStackSizeModifier: 0
   burnStackSizeModifier: 0
@@ -1796,7 +1803,7 @@ MonoBehaviour:
   aiCharacter: {fileID: 0}
   aiTickRate: 0.1
   currentState: 0
-  detectionRadius: 10
+  detectionRadius: 5
   allyNotifyRadius: 8
   currentEngagementRange: 2
   targetDestinationDistance: 0
@@ -1832,6 +1839,7 @@ MonoBehaviour:
   isPerformingAction: 0
   isInvincible:
     _value: 0
+  mainMesh: {fileID: 6967874036067790038}
   aiCombatManager: {fileID: 0}
   aiMovementManager: {fileID: 0}
   aiAnimationManager: {fileID: 0}
@@ -1906,6 +1914,8 @@ MonoBehaviour:
   baseHealth: 100
   baseMana: 100
   baseStamina: 100
+  allDamageModifier:
+    baseValue: 1
   spellDamageModifier:
     baseValue: 0.5
   attackDamageModifier:
@@ -1950,6 +1960,18 @@ MonoBehaviour:
     baseValue: 0
   stoneDefense:
     baseValue: 0
+  bloodDamageTakenMult:
+    baseValue: 1
+  bileDamageTakenMult:
+    baseValue: 1
+  fireDamageTakenMult:
+    baseValue: 1
+  iceDamageTakenMult:
+    baseValue: 1
+  sparkDamageTakenMult:
+    baseValue: 1
+  stoneDamageTakenMult:
+    baseValue: 1
   bloodThreshold:
     baseValue: 100
   bileThreshold:
@@ -2029,32 +2051,7 @@ MonoBehaviour:
       baseValue: 0
     activeAnimationSpeed:
       baseValue: 0
-  - baseSkill: {fileID: 0}
-    activeResourceType: 0
-    currentCooldownTimer: 0
-    activeElement: 0
-    activePrefab: {fileID: 0}
-    activeAnimation: 
-    activeTags: 
-    activeSkillCost:
-      baseValue: 0
-    activeDamageMultiplier:
-      baseValue: 0
-    activeMeleeRange:
-      baseValue: 0
-    activeCooldown:
-      baseValue: 0
-    activeAoeRadius:
-      baseValue: 0
-    activeDuration:
-      baseValue: 0
-    activeAoeDamageMultiplier:
-      baseValue: 0
-    activeProjectileSpeed:
-      baseValue: 0
-    activeStatusMod:
-      baseValue: 0
-    activeAnimationSpeed:
+    activeMoveSpeedPenalty:
       baseValue: 0
   - baseSkill: {fileID: 0}
     activeResourceType: 0
@@ -2083,32 +2080,7 @@ MonoBehaviour:
       baseValue: 0
     activeAnimationSpeed:
       baseValue: 0
-  - baseSkill: {fileID: 0}
-    activeResourceType: 0
-    currentCooldownTimer: 0
-    activeElement: 0
-    activePrefab: {fileID: 0}
-    activeAnimation: 
-    activeTags: 
-    activeSkillCost:
-      baseValue: 0
-    activeDamageMultiplier:
-      baseValue: 0
-    activeMeleeRange:
-      baseValue: 0
-    activeCooldown:
-      baseValue: 0
-    activeAoeRadius:
-      baseValue: 0
-    activeDuration:
-      baseValue: 0
-    activeAoeDamageMultiplier:
-      baseValue: 0
-    activeProjectileSpeed:
-      baseValue: 0
-    activeStatusMod:
-      baseValue: 0
-    activeAnimationSpeed:
+    activeMoveSpeedPenalty:
       baseValue: 0
   - baseSkill: {fileID: 0}
     activeResourceType: 0
@@ -2137,6 +2109,8 @@ MonoBehaviour:
       baseValue: 0
     activeAnimationSpeed:
       baseValue: 0
+    activeMoveSpeedPenalty:
+      baseValue: 0
   - baseSkill: {fileID: 0}
     activeResourceType: 0
     currentCooldownTimer: 0
@@ -2163,6 +2137,66 @@ MonoBehaviour:
     activeStatusMod:
       baseValue: 0
     activeAnimationSpeed:
+      baseValue: 0
+    activeMoveSpeedPenalty:
+      baseValue: 0
+  - baseSkill: {fileID: 0}
+    activeResourceType: 0
+    currentCooldownTimer: 0
+    activeElement: 0
+    activePrefab: {fileID: 0}
+    activeAnimation: 
+    activeTags: 
+    activeSkillCost:
+      baseValue: 0
+    activeDamageMultiplier:
+      baseValue: 0
+    activeMeleeRange:
+      baseValue: 0
+    activeCooldown:
+      baseValue: 0
+    activeAoeRadius:
+      baseValue: 0
+    activeDuration:
+      baseValue: 0
+    activeAoeDamageMultiplier:
+      baseValue: 0
+    activeProjectileSpeed:
+      baseValue: 0
+    activeStatusMod:
+      baseValue: 0
+    activeAnimationSpeed:
+      baseValue: 0
+    activeMoveSpeedPenalty:
+      baseValue: 0
+  - baseSkill: {fileID: 0}
+    activeResourceType: 0
+    currentCooldownTimer: 0
+    activeElement: 0
+    activePrefab: {fileID: 0}
+    activeAnimation: 
+    activeTags: 
+    activeSkillCost:
+      baseValue: 0
+    activeDamageMultiplier:
+      baseValue: 0
+    activeMeleeRange:
+      baseValue: 0
+    activeCooldown:
+      baseValue: 0
+    activeAoeRadius:
+      baseValue: 0
+    activeDuration:
+      baseValue: 0
+    activeAoeDamageMultiplier:
+      baseValue: 0
+    activeProjectileSpeed:
+      baseValue: 0
+    activeStatusMod:
+      baseValue: 0
+    activeAnimationSpeed:
+      baseValue: 0
+    activeMoveSpeedPenalty:
       baseValue: 0
   currentCastingSkill:
     baseSkill: {fileID: 0}
@@ -2191,6 +2225,8 @@ MonoBehaviour:
     activeStatusMod:
       baseValue: 0
     activeAnimationSpeed:
+      baseValue: 0
+    activeMoveSpeedPenalty:
       baseValue: 0
   rightWeaponSpawnPoint: {fileID: 3033466727748783676}
   leftWeaponSpawnPoint: {fileID: 4292550709658620812}
@@ -2402,6 +2438,23 @@ MonoBehaviour:
   _pushForceScale: 1
   _standingDownwardForceScale: 1
   _camera: {fileID: 0}
+--- !u!114 &4101222906559906301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5517188001995151312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466e3a0c016a4704eb21fe8b8c252421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KE.TargetHighlight
+  enemyRenderers:
+  - {fileID: 6967874036067790038}
+  - {fileID: 7963325583357717404}
+  - {fileID: 5438608579147856802}
+  highlightMaterial: {fileID: 2100000, guid: 1f441837adb11f84ab3c4211670530e3, type: 2}
 --- !u!1 &5528251075897658666
 GameObject:
   m_ObjectHideFlags: 0

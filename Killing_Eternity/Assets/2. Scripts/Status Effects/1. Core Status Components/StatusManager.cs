@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 namespace KE
@@ -11,12 +10,12 @@ namespace KE
 
         [Header("Ailment Thresholds")]
         [Tooltip("Characters sync this via StatsManager. Walls use these raw values.")]
-        public float bleedThreshold = 100f;
-        public float toxinThreshold = 100f;
-        public float burnThreshold = 100f;
-        public float chillThreshold = 100f;
-        public float shockThreshold = 100f;
-        public float sunderThreshold = 100f;
+        public CharacterStat bleedThreshold = new CharacterStat(100f);
+        public CharacterStat toxinThreshold = new CharacterStat(100f);
+        public CharacterStat burnThreshold = new CharacterStat(100f);
+        public CharacterStat chillThreshold = new CharacterStat(100f);
+        public CharacterStat shockThreshold = new CharacterStat(100f);
+        public CharacterStat sunderThreshold = new CharacterStat(100f);
 
         public List<StatusEffect> activeEffects = new List<StatusEffect>();
         public Dictionary<Element, float> buildups = new Dictionary<Element, float>();
@@ -42,24 +41,24 @@ namespace KE
 
         public void SetThresholds(float blood, float bile, float fire, float ice, float spark, float stone)
         {
-            bleedThreshold = blood;
-            toxinThreshold = bile;
-            burnThreshold = fire;
-            chillThreshold = ice;
-            shockThreshold = spark;
-            sunderThreshold = stone;
+            bleedThreshold.BaseValue = blood;
+            toxinThreshold.BaseValue = bile;
+            burnThreshold.BaseValue = fire;
+            chillThreshold.BaseValue = ice;
+            shockThreshold.BaseValue = spark;
+            sunderThreshold.BaseValue = stone;
         }
 
         public float GetThreshold(Element element)
         {
             switch (element)
             {
-                case Element.Blood: return bleedThreshold;
-                case Element.Bile: return toxinThreshold;
-                case Element.Fire: return burnThreshold;
-                case Element.Ice: return chillThreshold;
-                case Element.Spark: return shockThreshold;
-                case Element.Stone: return sunderThreshold;
+                case Element.Blood: return bleedThreshold.Value;
+                case Element.Bile: return toxinThreshold.Value;
+                case Element.Fire: return burnThreshold.Value;
+                case Element.Ice: return chillThreshold.Value;
+                case Element.Spark: return shockThreshold.Value;
+                case Element.Stone: return sunderThreshold.Value;
                 default: return 100f;
             }
         }
@@ -100,14 +99,14 @@ namespace KE
             if (myEntity.IsDead()) return;
 
             buildups[element] += amount;
-            Debug.Log($"Applied {amount} {element} status buildup. " +
-                $"\n Current buildup: {buildups[element]}" +
-                $"   Threshold: {GetThreshold(element)}");
+            //Debug.Log($"Applied {amount} {element} status buildup. " +
+            //    $"\n Current buildup: {buildups[element]}" +
+            //    $"   Threshold: {GetThreshold(element)}");
 
 
             if (buildups[element] >= GetThreshold(element))
             {
-                
+                Debug.Log("Trigger Status!");
                 buildups[element] = 0f;
                 Status incomingStatus = AlchemyEngine.instance.GetBaseStatusForElement(element);
                 ApplyStatus(incomingStatus, dotAmount, source);
@@ -157,7 +156,7 @@ namespace KE
             for (int i = 0; i < activeEffects.Count; i++)
             {
                 Status existingStatus = activeEffects[i].statusType;
-                Status reactionResult = AlchemyEngine.instance.CheckForElementalReaction(existingStatus, incomingStatus);
+                Status reactionResult = AlchemyEngine.instance.CheckForElementalReaction(incomingStatus, existingStatus);
 
                 if (reactionResult != incomingStatus)
                 {
@@ -214,12 +213,12 @@ namespace KE
                 //case Status.Paralyze: newEffect = new ParalyzeEffect(); break;
 
                 //TIER 2
-                //case Status.ThermalShock: newEffect = new ThermalShockEffect(); break;
-                //case Status.Wet: newEffect = new WetEffect(); break;
+                case Status.ThermalShock: newEffect = new ThermalShockEffect(); break;
+                case Status.Wet: newEffect = new WetEffect(); break;
 
                 // TIER 3
                 //case Status.Melt: newEffect = new MeltEffect(); break;
-                //case Status.Freeze: newEffect = new FreezeEffect(); break;
+                case Status.Freeze: newEffect = new FrozenEffect(); break;
 
                 default:
                     break;
@@ -229,6 +228,7 @@ namespace KE
             {
                 newEffect.ApplyEffect(myEntity, dotAmount, source);
                 activeEffects.Add(newEffect);
+                Debug.Log($"Applied {newEffect}");
             }
         }
     }

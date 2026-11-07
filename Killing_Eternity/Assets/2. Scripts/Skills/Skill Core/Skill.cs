@@ -1,4 +1,3 @@
-using Autodesk.Fbx;
 using KE;
 using System.Collections.Generic;
 using UnityEngine;
@@ -51,6 +50,7 @@ public class Skill : ScriptableObject
     [Tooltip("1.0 is default. 2.0 plays the animation twice as fast")]
     public float baseAnimationSpeed = 1.0f;
     public bool applyRootMotion = false;
+    public float moveSpeedPenalty = 0.5f;
 
     [Header("Implementation Parts")]
     public string skillAnimation;
