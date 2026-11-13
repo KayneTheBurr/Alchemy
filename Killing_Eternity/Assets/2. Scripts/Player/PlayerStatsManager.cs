@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace KE
 {
@@ -41,18 +42,21 @@ namespace KE
             maxHealth.OnValueChanged += UpdateMaxHealth;
             maxStamina.OnValueChanged += UpdateMaxStamina;
             maxMana.OnValueChanged += UpdateMaxMana;
+            shieldAmount.OnValueChanged += UpdateMaxShield;
         }
         protected override void Start()
         {
             currentHealth.OnValueChanged += PlayerUIManager.instance.playerHUDManager.SetNewHealthValue;
             currentStamina.OnValueChanged += PlayerUIManager.instance.playerHUDManager.SetNewStaminaValue;
             currentMana.OnValueChanged += PlayerUIManager.instance.playerHUDManager.SetNewManaValue;
+            currentShield.OnValueChanged += PlayerUIManager.instance.playerHUDManager.SetNewShieldValue;
 
             RecalculateAllAttributes();
 
             UpdateMaxHealth(maxHealth.Value);
             UpdateMaxStamina(maxStamina.Value);
             UpdateMaxMana(maxMana.Value);
+            UpdateMaxShield(shieldAmount.Value);
 
             base.Start();
         }
@@ -67,12 +71,14 @@ namespace KE
             maxHealth.OnValueChanged -= UpdateMaxHealth;
             maxStamina.OnValueChanged -= UpdateMaxStamina;
             maxMana.OnValueChanged -= UpdateMaxMana;
+            shieldAmount.OnValueChanged -= UpdateMaxShield;
 
             if (PlayerUIManager.instance != null && PlayerUIManager.instance.playerHUDManager != null)
             {
                 currentHealth.OnValueChanged -= PlayerUIManager.instance.playerHUDManager.SetNewHealthValue;
                 currentStamina.OnValueChanged -= PlayerUIManager.instance.playerHUDManager.SetNewStaminaValue;
                 currentMana.OnValueChanged -= PlayerUIManager.instance.playerHUDManager.SetNewManaValue;
+                currentShield.OnValueChanged -= PlayerUIManager.instance.playerHUDManager.SetNewShieldValue;
             }
         }
         #endregion
@@ -120,6 +126,19 @@ namespace KE
             if (currentMana.Value > maxInt)
             {
                 currentMana.Value = maxInt;
+            }
+        }
+        #endregion
+
+        #region Shield
+        private void UpdateMaxShield(float newMax)
+        {
+            int maxInt = Mathf.RoundToInt(newMax);
+            PlayerUIManager.instance.playerHUDManager.SetMaxShieldValue(maxInt);
+
+            if (currentShield.Value > maxInt)
+            {
+                currentShield.Value = maxInt;
             }
         }
         #endregion

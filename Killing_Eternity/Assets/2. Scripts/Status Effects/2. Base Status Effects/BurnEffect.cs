@@ -12,7 +12,7 @@ public class BurnEffect : DamageOverTimeEffect
         duration = AlchemyEngine.instance.tuningData.burnDuration;
         dps = 0;
         damageElement = Element.Fire;
-        burnDamageModifier = new StatModifier(0.1f, StatModType.PercentMult, this);
+        burnDamageModifier = new StatModifier(AlchemyEngine.instance.tuningData.burnDamageBonus, StatModType.PercentMult, this);
     }
 
     public override void ApplyEffect(IDamageable target, float dotAmount, IDamageable source)
@@ -32,7 +32,8 @@ public class BurnEffect : DamageOverTimeEffect
             charTarget.characterStatsManager.allDamageModifier.AddModifier(burnDamageModifier);
         }
 
-        // Instantiate Fire VFX on target.GetTransform()
+        DamageableEnv envObj = target.GetTransform().GetComponent<DamageableEnv>();
+
         GameObject vfxPrefab = AlchemyEngine.instance.tuningData.burnVFXPrefab;
         if (vfxPrefab != null)
         {
@@ -42,7 +43,12 @@ public class BurnEffect : DamageOverTimeEffect
                 activeVFX.GetComponent<OverlayFX>().targetRenderer = charTarget.mainMesh;
                 activeVFX.GetComponent<OverlayFX>().InitializeWithMesh();
             }
-            
+            else if (envObj != null)
+            {
+
+                activeVFX.GetComponent<OverlayFX>().targetRenderer = envObj.mainMesh;
+                activeVFX.GetComponent<OverlayFX>().InitializeWithMesh();
+            }
         }
     }
 

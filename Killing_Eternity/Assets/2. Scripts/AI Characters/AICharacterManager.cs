@@ -46,33 +46,24 @@ namespace KE
                 Destroy(gameObject);
             }
         }
-        public override void TakeDamage(float damageValue, Element element, IDamageable damageSource = null, bool isDoT = false)
+        protected override void HandleDeath()
         {
-            base.TakeDamage(damageValue, element);
+            base.HandleDeath(); // Sets isDead.Value = true
+            if (navMeshAgent != null) navMeshAgent.enabled = false;
+            //cant set a state since its looking for the base manager and current state is only on normal ai manager
+        }
 
-            float rawResistance = characterStatsManager.GetResistance(element);
-            float effectiveResistance = Mathf.Min(rawResistance, 100f);
+        protected override void HandleHitReaction(IDamageable damageSource)
+        {
+            base.HandleHitReaction(damageSource);
 
-            float damageMultiplier = 1f - (effectiveResistance / 100f);
-            float finalDamage = Mathf.Max(damageValue * damageMultiplier, 0f);
-
-            characterStatsManager.currentHealth.Value -= finalDamage;
-
-            if (characterStatsManager.currentHealth.Value <= 0)
+            // AI alert others logic when hit 
+            if (aiCombatManager.currentTarget == null && damageSource != null)
             {
-                isDead.Value = true;
-                if (navMeshAgent != null) navMeshAgent.enabled = false;
-                //cant set a state since its looking for the base manager and current state is only on normal ai manager
-            }
-            else
-            {
-                if (aiManager != null && aiCombatManager.currentTarget == null && damageSource != null)
+                if (WorldUtilityManager.instance.CanIDamageThisTarget(MyFaction, damageSource.MyFaction))
                 {
-                    if (WorldUtilityManager.instance.CanIDamageThisTarget(MyFaction, damageSource.MyFaction))
-                    {
-                        aiManager.AlertToTarget(damageSource);
-                        aiManager.ShoutToAllies(damageSource);
-                    }
+                    aiManager.AlertToTarget(damageSource);
+                    aiManager.ShoutToAllies(damageSource);
                 }
             }
         }

@@ -13,7 +13,7 @@ public class OverlayFX : MonoBehaviour
     public Material overlayMaterial;
     public Renderer targetRenderer;
     public List<ParticleSystem> particleSystems = new();
-
+    private Material myRuntimeMaterial;
     private float particleSizeMultiplier = 0.15f;
     public Vector3 rendererTrueForward = Vector3.zero;
 
@@ -173,6 +173,7 @@ public class OverlayFX : MonoBehaviour
         var runtime = Object.Instantiate(overlayMaterial);
         runtime.name = overlayMaterial.name + " (Runtime)";
         runtime.hideFlags = HideFlags.HideAndDontSave;
+        myRuntimeMaterial = runtime;
         UpdateBounds(runtime, rend);
 
         if (append)
@@ -202,7 +203,7 @@ public class OverlayFX : MonoBehaviour
 
         for (int i = 0; i < mats.Length; i++)
         {
-            if (mats[i] != null && mats[i].name.EndsWith("(Runtime)"))
+            if (mats[i] != null && mats[i] == myRuntimeMaterial)
             {
                 changed = true;
             }

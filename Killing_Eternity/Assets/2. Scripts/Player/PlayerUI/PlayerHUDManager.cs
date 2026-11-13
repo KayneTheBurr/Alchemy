@@ -11,6 +11,7 @@ namespace KE
         [SerializeField] UI_ResourceBar healthBar;
         [SerializeField] UI_ResourceBar manaBar;
         [SerializeField] UI_ResourceBar staminaBar;
+        [SerializeField] UI_ResourceBar shieldBar;
 
         [Header("Target HP Bar")]
         public CanvasGroup targetHPCanvasGroup;
@@ -47,6 +48,8 @@ namespace KE
             manaBar.gameObject.SetActive(true);
             staminaBar.gameObject.SetActive(false);
             staminaBar.gameObject.SetActive(true);
+            shieldBar.gameObject.SetActive(false);
+            shieldBar.gameObject.SetActive(true);
         }
         public void ToggleHUD(bool status)
         {
@@ -94,6 +97,29 @@ namespace KE
         public void SetMaxManaValue(float maxMana)
         {
             manaBar.SetMaxStat(maxMana);
+        }
+        #endregion
+
+        #region Shield
+        public void SetNewShieldValue(float oldShield, float newShield)
+        {
+            shieldBar.SetStat(newShield);
+        }
+        public void SetMaxShieldValue(float maxShield)
+        {
+            if (maxShield <= 0)
+            {
+                shieldBar.gameObject.SetActive(false);
+            }
+            else
+            {
+                // Only turn it on if it was hidden, then set the value
+                if (!shieldBar.gameObject.activeSelf)
+                {
+                    shieldBar.gameObject.SetActive(true);
+                }
+                shieldBar.SetMaxStat(maxShield);
+            }
         }
         #endregion
 

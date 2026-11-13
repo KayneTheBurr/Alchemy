@@ -200,12 +200,12 @@ namespace KE
             switch (finalStatus)
             {
                 // BASE ELEMENTS
-                //case Status.Bleed: newEffect = new BleedEffect(); break;
-                //case Status.Toxin: newEffect = new ToxinEffect(); break;
+                case Status.Bleed: newEffect = new BleedEffect(); break;
+                case Status.Toxin: newEffect = new ToxinEffect(); break;
                 case Status.Burn: newEffect = new BurnEffect(); break;
                 case Status.Chill: newEffect = new ChillEffect(); break;
                 //case Status.Shock: newEffect = new ShockEffect(); break;
-                //case Status.Sunder: newEffect = new SunderEffect(); break;
+                case Status.Sunder: newEffect = new SunderEffect(); break;
 
                 // STACKING REACTIONS
                 //case Status.Necrosis: newEffect = new NecrosisEffect(); break;

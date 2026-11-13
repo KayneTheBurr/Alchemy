@@ -1,0 +1,2156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &68876877327413626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5924376758943528536}
+  m_Layer: 6
+  m_Name: Tetruncivermis_HookLowerLeft1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5924376758943528536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68876877327413626}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.3782066, y: -0.25889978, z: 0.23796664, w: 0.85633093}
+  m_LocalPosition: {x: -0.21904777, y: -0.10409566, z: -0.118520156}
+  m_LocalScale: {x: 0.99999976, y: 0.9999998, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6365167856891607381}
+  m_Father: {fileID: 7069432499203982336}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &259780059401170709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 405573392239903214}
+  m_Layer: 6
+  m_Name: Tetruncivermis_ToothLeft1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &405573392239903214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259780059401170709}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.036622453, y: 0.07908778, z: 0.41860235, w: 0.9039779}
+  m_LocalPosition: {x: -0.14998394, y: 0.09068559, z: -0.029012512}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7675242100096880428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &350562090084281269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2555872717849574153}
+  m_Layer: 6
+  m_Name: Tetruncivermis_HookUpperRight2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2555872717849574153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350562090084281269}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0000001366051, y: -0.00000026266585, z: -0.44089207, w: 0.8975601}
+  m_LocalPosition: {x: -0.11820728, y: 0.000000076293944, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7366420568388680588}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &423621747858705886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 81729340671307361}
+  m_Layer: 6
+  m_Name: root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &81729340671307361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423621747858705886}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2618321782325548164}
+  m_Father: {fileID: 185872294589294200}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &625627133502388262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1943287243493149518}
+  m_Layer: 6
+  m_Name: Tetruncivermis_HookUpperLeft1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1943287243493149518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625627133502388262}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.19290106, y: -0.08550188, z: -0.36348873, w: 0.90738887}
+  m_LocalPosition: {x: -0.23657015, y: 0.105621606, z: -0.11153941}
+  m_LocalScale: {x: 1.0000001, y: 0.9999997, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5313722736047943598}
+  m_Father: {fileID: 7069432499203982336}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &813594593465023041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7366420568388680588}
+  m_Layer: 6
+  m_Name: Tetruncivermis_HookUpperRight1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7366420568388680588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813594593465023041}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.9073889, y: -0.36348876, z: -0.085501574, w: -0.19290099}
+  m_LocalPosition: {x: -0.2365702, y: 0.10562168, z: 0.11199996}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2555872717849574153}
+  m_Father: {fileID: 7069432499203982336}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1028501812373112300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5813659955987980828}
+  m_Layer: 6
+  m_Name: Tetruncivermis_ToothRight4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5813659955987980828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028501812373112300}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5969683, y: -0.24411814, z: -0.39266908, w: 0.65562665}
+  m_LocalPosition: {x: -0.15066081, y: -0.038423613, z: 0.12099995}
+  m_LocalScale: {x: 1.0000002, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7675242100096880428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1123487943343420955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8142140074816826394}
+  m_Layer: 6
+  m_Name: Tetruncivermis_ToothRight6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8142140074816826394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123487943343420955}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.07548503, y: 0.017058726, z: -0.49640784, w: 0.8646331}
+  m_LocalPosition: {x: -0.16346821, y: -0.10780938, z: 0.028999878}
+  m_LocalScale: {x: 0.99999994, y: 1.0000002, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7675242100096880428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1272813485345934364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7675242100096880428}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Mouth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7675242100096880428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272813485345934364}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.00000049799405, y: -0.0000000030266258, z: -0.055674214, w: 0.998449}
+  m_LocalPosition: {x: -0.21885426, y: 0.000000076293944, z: 3.410605e-15}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 405573392239903214}
+  - {fileID: 7043296259006938441}
+  - {fileID: 5072066011998973146}
+  - {fileID: 563437823088486059}
+  - {fileID: 1538514686540045002}
+  - {fileID: 6788329276969601540}
+  - {fileID: 3238701294666132059}
+  - {fileID: 5388770023749534777}
+  - {fileID: 690204593512212716}
+  - {fileID: 5813659955987980828}
+  - {fileID: 3591525962916855473}
+  - {fileID: 8142140074816826394}
+  m_Father: {fileID: 7069432499203982336}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2239463382014142474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7069432499203982336}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7069432499203982336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2239463382014142474}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0000000025274036, y: -0.000000048299622, z: 0.0522567, w: 0.9986337}
+  m_LocalPosition: {x: -0.24311379, y: 0.00000022888183, z: -0.00000002846029}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3934214692057015932}
+  - {fileID: 5924376758943528536}
+  - {fileID: 5743709383820919154}
+  - {fileID: 1943287243493149518}
+  - {fileID: 7366420568388680588}
+  - {fileID: 7675242100096880428}
+  m_Father: {fileID: 2858977974731672471}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2329820694234421434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6199976226611112596}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Tail8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6199976226611112596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329820694234421434}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000001430624, y: -0.000000009695802, z: -0.007473536, w: 0.9999721}
+  m_LocalPosition: {x: -0.18560253, y: -0.000000038240096, z: 0.000000023301867}
+  m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3280212332853942253}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2388690934192677550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2858977974731672471}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Neck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2858977974731672471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2388690934192677550}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.00000015238093, y: 0.00000018531104, z: 0.7173627, w: 0.6966999}
+  m_LocalPosition: {x: -0, y: 0.0000000015897239, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7069432499203982336}
+  m_Father: {fileID: 2618321782325548164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2475206397128188193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5003879003393233959}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Tail5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5003879003393233959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2475206397128188193}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0000002008168, y: 0.0000000019570296, z: -0.009744885, w: 0.99995255}
+  m_LocalPosition: {x: -0.20656697, y: 3.4924596e-12, z: 0.000000026167575}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6040147366634923894}
+  m_Father: {fileID: 5994572971681842147}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2478666434675884067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7043296259006938441}
+  m_Layer: 6
+  m_Name: Tetruncivermis_ToothLeft2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7043296259006938441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478666434675884067}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.26764122, y: 0.0628903, z: 0.40400836, w: 0.87246215}
+  m_LocalPosition: {x: -0.1465718, y: 0.07097072, z: -0.073168196}
+  m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7675242100096880428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2539435251057186432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 690204593512212716}
+  m_Layer: 6
+  m_Name: Tetruncivermis_ToothRight3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &690204593512212716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2539435251057186432}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.8329219, y: 0.3603706, z: 0.19790584, w: -0.3704152}
+  m_LocalPosition: {x: -0.1445285, y: 0.02942213, z: 0.115000024}
+  m_LocalScale: {x: 1, y: 1.0000004, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7675242100096880428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2895913192502599291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3591525962916855473}
+  m_Layer: 6
+  m_Name: Tetruncivermis_ToothRight5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3591525962916855473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2895913192502599291}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.3031345, y: -0.090719454, z: -0.5291364, w: 0.7873336}
+  m_LocalPosition: {x: -0.15982234, y: -0.088704534, z: 0.085999906}
+  m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7675242100096880428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3251689061771307078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6365167856891607381}
+  m_Layer: 6
+  m_Name: Tetruncivermis_HookLowerLeft2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6365167856891607381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3251689061771307078}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0000009943018, y: -0.00000017993905, z: -0.15713678, w: 0.98757684}
+  m_LocalPosition: {x: -0.11753317, y: -0.000000035436823, z: -0.0000000130852635}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5924376758943528536}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3489512685214032307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3934214692057015932}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Antenna1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3934214692057015932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3489512685214032307}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00000010547692, y: -0.00000008127538, z: -0.6103677, w: 0.7921182}
+  m_LocalPosition: {x: -0.111996725, y: 0.18110469, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2222597510360254601}
+  m_Father: {fileID: 7069432499203982336}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3566776876774618845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2430735241357481196}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Antenna3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2430735241357481196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3566776876774618845}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.3410041, w: 0.9400618}
+  m_LocalPosition: {x: -0.07379448, y: 0.000000038146972, z: 0.0000000030712544}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2222597510360254601}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4197932702909298267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5743709383820919154}
+  m_Layer: 6
+  m_Name: Tetruncivermis_HookLowerRight1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5743709383820919154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4197932702909298267}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.8563308, y: 0.23796669, z: -0.25889963, w: 0.37820682}
+  m_LocalPosition: {x: -0.21904783, y: -0.104095675, z: 0.11899998}
+  m_LocalScale: {x: 0.9999997, y: 1.0000001, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 15365209019770166}
+  m_Father: {fileID: 7069432499203982336}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4208350701134947834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5388770023749534777}
+  m_Layer: 6
+  m_Name: Tetruncivermis_ToothRight2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5388770023749534777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4208350701134947834}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.872462, y: 0.4040083, z: 0.062890574, w: -0.267642}
+  m_LocalPosition: {x: -0.1465718, y: 0.07097071, z: 0.07300004}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7675242100096880428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5284375214124431953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3280212332853942253}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Tail7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3280212332853942253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284375214124431953}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.00000075744475, y: -0.000000020786185, z: -0.001958422, w: 0.9999981}
+  m_LocalPosition: {x: -0.20991291, y: 0.000000056950384, z: 0.000000026598132}
+  m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6199976226611112596}
+  m_Father: {fileID: 6040147366634923894}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5315086953344350778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5313722736047943598}
+  m_Layer: 6
+  m_Name: Tetruncivermis_HookUpperLeft2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5313722736047943598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315086953344350778}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.00000021399501, y: -0.00000010511686, z: 0.44089207, w: 0.8975601}
+  m_LocalPosition: {x: -0.11820724, y: -3.7252902e-11, z: -0.000000012858481}
+  m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1943287243493149518}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5526635886199962299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1538514686540045002}
+  m_Layer: 6
+  m_Name: Tetruncivermis_ToothLeft5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1538514686540045002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526635886199962299}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.78733313, y: -0.52913654, z: -0.090719774, w: -0.30313528}
+  m_LocalPosition: {x: -0.15982239, y: -0.08870431, z: -0.0864065}
+  m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7675242100096880428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5720893516027499059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6040147366634923894}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Tail6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6040147366634923894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720893516027499059}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0000002383996, y: -0.000000003008998, z: 0.012620652, w: 0.99992037}
+  m_LocalPosition: {x: -0.17256887, y: -5.8213343e-12, z: 0.000000021853026}
+  m_LocalScale: {x: 1.0000002, y: 1.0000002, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3280212332853942253}
+  m_Father: {fileID: 5003879003393233959}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6304160920567480942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3238701294666132059}
+  m_Layer: 6
+  m_Name: Tetruncivermis_ToothRight1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3238701294666132059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6304160920567480942}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.9039777, y: 0.41860256, z: 0.07908817, w: -0.036623437}
+  m_LocalPosition: {x: -0.14998397, y: 0.0906855, z: 0.02900005}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7675242100096880428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6828075767439342106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5994572971681842147}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Tail4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5994572971681842147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6828075767439342106}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000000047116448, y: 6.975357e-10, z: -0.014802919, w: 0.99989045}
+  m_LocalPosition: {x: -0.22046097, y: -0.000000019073486, z: 0.000000027932696}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5003879003393233959}
+  m_Father: {fileID: 513875187506253721}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6877204062373524876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2222597510360254601}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Antenna2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2222597510360254601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6877204062373524876}
+  serializedVersion: 2
+  m_LocalRotation: {x: 7.823236e-17, y: 1.9759105e-17, z: 0.24487962, w: 0.96955353}
+  m_LocalPosition: {x: -0.07749378, y: 0.000000019073486, z: -0.0000000035258199}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2430735241357481196}
+  m_Father: {fileID: 3934214692057015932}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6986682948125679738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5072066011998973146}
+  m_Layer: 6
+  m_Name: Tetruncivermis_ToothLeft3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5072066011998973146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986682948125679738}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.3704144, y: 0.1979055, z: 0.36037073, w: 0.8329223}
+  m_LocalPosition: {x: -0.1445285, y: 0.029422339, z: -0.11520397}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7675242100096880428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7042807304695641135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 15365209019770166}
+  m_Layer: 6
+  m_Name: Tetruncivermis_HookLowerRight2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &15365209019770166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7042807304695641135}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0000009935508, y: -0.00000017521874, z: 0.15713672, w: 0.9875769}
+  m_LocalPosition: {x: -0.11753322, y: 0.000000076293944, z: -0.00000004529953}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 0.9999998}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5743709383820919154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7078758516978283759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4770220085950779524}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Tail1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4770220085950779524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078758516978283759}
+  serializedVersion: 2
+  m_LocalRotation: {x: -8.659413e-17, y: -5.0585207e-19, z: -0.7029641, w: 0.71122533}
+  m_LocalPosition: {x: -0, y: 3.9763107e-10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8414811063752837048}
+  m_Father: {fileID: 2618321782325548164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7161546702426075667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513875187506253721}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Tail3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &513875187506253721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7161546702426075667}
+  serializedVersion: 2
+  m_LocalRotation: {x: -7.916739e-12, y: -8.168482e-10, z: -0.009691358, w: 0.99995303}
+  m_LocalPosition: {x: -0.22129449, y: 5.684342e-16, z: 0.000000028042317}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5994572971681842147}
+  m_Father: {fileID: 8414811063752837048}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7271890235095569824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6788329276969601540}
+  m_Layer: 6
+  m_Name: Tetruncivermis_ToothLeft6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6788329276969601540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7271890235095569824}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.86463326, y: -0.49640733, z: 0.017058475, w: -0.07548563}
+  m_LocalPosition: {x: -0.16346821, y: -0.10780938, z: -0.029218191}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7675242100096880428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8168566156079214948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185872294589294200}
+  - component: {fileID: 7584259419261261215}
+  - component: {fileID: 1801644206615968674}
+  - component: {fileID: 3372719604042506359}
+  - component: {fileID: 6422624880950492897}
+  - component: {fileID: 2793838739488102832}
+  - component: {fileID: 3343573621029549541}
+  - component: {fileID: 4807549540710722922}
+  - component: {fileID: 7983462543355059907}
+  - component: {fileID: 8276928562672054624}
+  - component: {fileID: 4133397247205129}
+  - component: {fileID: 1483030214864612060}
+  - component: {fileID: 697097875710544440}
+  - component: {fileID: 2670332190522362189}
+  - component: {fileID: 6743942100581725148}
+  - component: {fileID: 6359899909132056353}
+  - component: {fileID: 1006161223514242940}
+  m_Layer: 6
+  m_Name: Enemy_SpawnerBaby
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &185872294589294200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.35472, y: -0.1, z: 9.62677}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 81729340671307361}
+  - {fileID: 3851474291853128262}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7584259419261261215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f58f394ab387ef74fb24003d594bfc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KE.StatusManager
+  bleedThreshold:
+    baseValue: 100
+  toxinThreshold:
+    baseValue: 100
+  burnThreshold:
+    baseValue: 100
+  chillThreshold:
+    baseValue: 100
+  shockThreshold:
+    baseValue: 100
+  sunderThreshold:
+    baseValue: 100
+  bleedStackSizeModifier: 0
+  toxinStackSizeModifier: 0
+  burnStackSizeModifier: 0
+  chillStackSizeModifier: 0
+  shockStackSizeModifier: 0
+  sunderStackSizeModifier: 0
+--- !u!95 &1801644206615968674
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: a4a4af69cffe3044cb1ae6eff34d0752, type: 3}
+  m_Controller: {fileID: 22100000, guid: f3862ec334349cdf7a2002ef8a1a30e6, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3372719604042506359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd2d5498468e12b4099a8a68437aa611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NormalAIManager
+  aiCharacter: {fileID: 0}
+  aiTickRate: 0.1
+  currentState: 0
+  detectionRadius: 10
+  allyNotifyRadius: 7
+  currentEngagementRange: 8
+  targetDestinationDistance: 0
+--- !u!114 &6422624880950492897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e55b916b1af46468c36a857afb3130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KE.AICharacterManager
+  characterController: {fileID: 0}
+  animator: {fileID: 0}
+  characterCombatManager: {fileID: 0}
+  characterMovementManager: {fileID: 0}
+  characterAnimationManager: {fileID: 0}
+  characterStatsManager: {fileID: 0}
+  characterInventoryManager: {fileID: 0}
+  characterEquipmentManager: {fileID: 0}
+  statusManager: {fileID: 0}
+  characterLevel:
+    _value: 1
+  characterName:
+    _value: Gravid Mother
+  faction: 1
+  isDead:
+    _value: 0
+  canMove: 1
+  canRotate: 1
+  applyRootMotion: 0
+  isPerformingAction: 0
+  isInvincible:
+    _value: 0
+  mainMesh: {fileID: 4094966421834137733}
+  aiCombatManager: {fileID: 0}
+  aiMovementManager: {fileID: 0}
+  aiAnimationManager: {fileID: 0}
+  aiStatsManager: {fileID: 0}
+  aiInventoryManager: {fileID: 0}
+  aiEquipmentManager: {fileID: 0}
+  aiManager: {fileID: 3372719604042506359}
+  navMeshAgent: {fileID: 1483030214864612060}
+--- !u!114 &2793838739488102832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a377971c7ec0a47b8dae9057bf3080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIMovementManager
+  character: {fileID: 0}
+  isMoving:
+    _value: 0
+  isSprinting: 0
+  isDodging: 0
+  baseMovementSpeed: 3.5
+  rotationSpeed: 120
+--- !u!114 &3343573621029549541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a612f9163d51788449bed3b2a4346a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIAnimationManager
+  vertical: 0
+  horizontal: 0
+  moveSpeedMult: 0
+  currentAnimation: 
+  lastDamageAnimationPlayed: 
+  idleToWalkTolerance: 0.1
+  dampTime: 0.1
+  forceForwardMovementOnly: 1
+--- !u!114 &4807549540710722922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c5a98ee28788094897e7111d38abfee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIStatsManager
+  currentHealth:
+    _value: 150
+  currentStamina:
+    _value: 80
+  currentMana:
+    _value: 80
+  maxHealth:
+    baseValue: 300
+  maxStamina:
+    baseValue: 100
+  maxMana:
+    baseValue: 100
+  baseHealth: 150
+  baseMana: 80
+  baseStamina: 80
+  staminaRegenTimer: 0
+  staminaRegenDelay:
+    baseValue: 1
+  staminaCostModifier:
+    baseValue: 1
+  staminaRegenPerSec:
+    baseValue: 20
+  inCombatStaminaRegenScaler: 1
+  manaRegenTimer: 0
+  manaRegenDelay:
+    baseValue: 0.25
+  manaCostModifier:
+    baseValue: 1
+  manaRegenPerSecond:
+    baseValue: 10
+  inCombatManaRegenScaler: 1
+  allDamageModifier:
+    baseValue: 1
+  spellDamageModifier:
+    baseValue: 0.5
+  attackDamageModifier:
+    baseValue: 1
+  directDamageMultiplier:
+    baseValue: 1
+  dotDamageMultiplier:
+    baseValue: 1
+  bloodDamageMult:
+    baseValue: 1
+  bileDamageMult:
+    baseValue: 1
+  fireDamageMult:
+    baseValue: 1
+  iceDamageMult:
+    baseValue: 1
+  sparkDamageMult:
+    baseValue: 1
+  stoneDamageMult:
+    baseValue: 1
+  flatAddedBloodDamage:
+    baseValue: 0
+  flatAddedBileDamage:
+    baseValue: 0
+  flatAddedFireDamage:
+    baseValue: 0
+  flatAddedIceDamage:
+    baseValue: 0
+  flatAddedSparkDamage:
+    baseValue: 0
+  flatAddedStoneDamage:
+    baseValue: 0
+  critChance:
+    baseValue: 5
+  critDamageMultiplier:
+    baseValue: 1.5
+  statusBuildupMultiplier:
+    baseValue: 1
+  armourAmount:
+    baseValue: 0
+  maxArmorMitigation: 0.9
+  armorTuningFactor: 10
+  armourAppliedToAllElements:
+    baseValue: 0
+  averageDamageReceivedBase: 20
+  damageRecievedIncreasePerLevel: 15
+  evasionRating:
+    baseValue: 0
+  maxEvasionChance: 95
+  evasionResetWindow: 3
+  evasionScalingConstant: 25
+  shieldAmount:
+    baseValue: 0
+  currentShield:
+    _value: 0
+  shieldRegenDelay:
+    baseValue: 1
+  shieldRegenPerSec:
+    baseValue: 20
+  inCombatShieldRegenScaler: 1
+  allDamageReduction:
+    baseValue: 1
+  lifeRecoup:
+    baseValue: 0
+  manaRecoup:
+    baseValue: 0
+  shieldRecoup:
+    baseValue: 0
+  staminaRecoup:
+    baseValue: 0
+  recoupDuration:
+    baseValue: 4
+  lifeOnHit:
+    baseValue: 0
+  manaOnHit:
+    baseValue: 0
+  staminaOnHit:
+    baseValue: 0
+  shieldOnHit:
+    baseValue: 0
+  lifeStealAmount:
+    baseValue: 0
+  manaStealAmount:
+    baseValue: 0
+  staminaStealAmount:
+    baseValue: 0
+  shieldStealAmount:
+    baseValue: 0
+  flatLifeRegenPerSec:
+    baseValue: 0
+  percentLifeRegenPerSec:
+    baseValue: 0
+  bloodDefense:
+    baseValue: 0
+  bileDefense:
+    baseValue: 0
+  fireDefense:
+    baseValue: 0
+  iceDefense:
+    baseValue: 0
+  sparkDefense:
+    baseValue: 0
+  stoneDefense:
+    baseValue: 0
+  maxBloodResistance:
+    baseValue: 100
+  maxBileResistance:
+    baseValue: 100
+  maxFireResistance:
+    baseValue: 100
+  maxIceResistance:
+    baseValue: 100
+  maxSparkResistance:
+    baseValue: 100
+  maxStoneResistance:
+    baseValue: 100
+  bloodDamageTakenMult:
+    baseValue: 1
+  bileDamageTakenMult:
+    baseValue: 1
+  fireDamageTakenMult:
+    baseValue: 1
+  iceDamageTakenMult:
+    baseValue: 1
+  sparkDamageTakenMult:
+    baseValue: 1
+  stoneDamageTakenMult:
+    baseValue: 1
+  bloodThreshold:
+    baseValue: 100
+  bileThreshold:
+    baseValue: 100
+  fireThreshold:
+    baseValue: 100
+  iceThreshold:
+    baseValue: 20
+  sparkThreshold:
+    baseValue: 100
+  stoneThreshold:
+    baseValue: 100
+  actionSpeed:
+    baseValue: 1
+  moveSpeedMultiplier:
+    baseValue: 1
+--- !u!114 &7983462543355059907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c0a0a0b9166fe542884539a1199a694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AICombatManager
+  character: {fileID: 0}
+  activeSkills:
+  - baseSkill: {fileID: 0}
+    activeResourceType: 0
+    currentCooldownTimer: 0
+    activeElement: 0
+    activePrefab: {fileID: 0}
+    activeAnimation: 
+    activeTags: 
+    activeSkillCost:
+      baseValue: 0
+    activeDamageMultiplier:
+      baseValue: 0
+    activeHitRatio:
+      baseValue: 0
+    activeDotRatio:
+      baseValue: 0
+    activeMeleeRange:
+      baseValue: 0
+    activeCooldown:
+      baseValue: 0
+    activeAoeRadius:
+      baseValue: 0
+    activeDuration:
+      baseValue: 0
+    activeAoeDamageMultiplier:
+      baseValue: 0
+    activeProjectileSpeed:
+      baseValue: 0
+    activeProjectileRange:
+      baseValue: 0
+    activeStatusMod:
+      baseValue: 0
+    activeAnimationSpeed:
+      baseValue: 0
+    activeMoveSpeedPenalty:
+      baseValue: 0
+  - baseSkill: {fileID: 0}
+    activeResourceType: 0
+    currentCooldownTimer: 0
+    activeElement: 0
+    activePrefab: {fileID: 0}
+    activeAnimation: 
+    activeTags: 
+    activeSkillCost:
+      baseValue: 0
+    activeDamageMultiplier:
+      baseValue: 0
+    activeHitRatio:
+      baseValue: 0
+    activeDotRatio:
+      baseValue: 0
+    activeMeleeRange:
+      baseValue: 0
+    activeCooldown:
+      baseValue: 0
+    activeAoeRadius:
+      baseValue: 0
+    activeDuration:
+      baseValue: 0
+    activeAoeDamageMultiplier:
+      baseValue: 0
+    activeProjectileSpeed:
+      baseValue: 0
+    activeProjectileRange:
+      baseValue: 0
+    activeStatusMod:
+      baseValue: 0
+    activeAnimationSpeed:
+      baseValue: 0
+    activeMoveSpeedPenalty:
+      baseValue: 0
+  - baseSkill: {fileID: 0}
+    activeResourceType: 0
+    currentCooldownTimer: 0
+    activeElement: 0
+    activePrefab: {fileID: 0}
+    activeAnimation: 
+    activeTags: 
+    activeSkillCost:
+      baseValue: 0
+    activeDamageMultiplier:
+      baseValue: 0
+    activeHitRatio:
+      baseValue: 0
+    activeDotRatio:
+      baseValue: 0
+    activeMeleeRange:
+      baseValue: 0
+    activeCooldown:
+      baseValue: 0
+    activeAoeRadius:
+      baseValue: 0
+    activeDuration:
+      baseValue: 0
+    activeAoeDamageMultiplier:
+      baseValue: 0
+    activeProjectileSpeed:
+      baseValue: 0
+    activeProjectileRange:
+      baseValue: 0
+    activeStatusMod:
+      baseValue: 0
+    activeAnimationSpeed:
+      baseValue: 0
+    activeMoveSpeedPenalty:
+      baseValue: 0
+  - baseSkill: {fileID: 0}
+    activeResourceType: 0
+    currentCooldownTimer: 0
+    activeElement: 0
+    activePrefab: {fileID: 0}
+    activeAnimation: 
+    activeTags: 
+    activeSkillCost:
+      baseValue: 0
+    activeDamageMultiplier:
+      baseValue: 0
+    activeHitRatio:
+      baseValue: 0
+    activeDotRatio:
+      baseValue: 0
+    activeMeleeRange:
+      baseValue: 0
+    activeCooldown:
+      baseValue: 0
+    activeAoeRadius:
+      baseValue: 0
+    activeDuration:
+      baseValue: 0
+    activeAoeDamageMultiplier:
+      baseValue: 0
+    activeProjectileSpeed:
+      baseValue: 0
+    activeProjectileRange:
+      baseValue: 0
+    activeStatusMod:
+      baseValue: 0
+    activeAnimationSpeed:
+      baseValue: 0
+    activeMoveSpeedPenalty:
+      baseValue: 0
+  - baseSkill: {fileID: 0}
+    activeResourceType: 0
+    currentCooldownTimer: 0
+    activeElement: 0
+    activePrefab: {fileID: 0}
+    activeAnimation: 
+    activeTags: 
+    activeSkillCost:
+      baseValue: 0
+    activeDamageMultiplier:
+      baseValue: 0
+    activeHitRatio:
+      baseValue: 0
+    activeDotRatio:
+      baseValue: 0
+    activeMeleeRange:
+      baseValue: 0
+    activeCooldown:
+      baseValue: 0
+    activeAoeRadius:
+      baseValue: 0
+    activeDuration:
+      baseValue: 0
+    activeAoeDamageMultiplier:
+      baseValue: 0
+    activeProjectileSpeed:
+      baseValue: 0
+    activeProjectileRange:
+      baseValue: 0
+    activeStatusMod:
+      baseValue: 0
+    activeAnimationSpeed:
+      baseValue: 0
+    activeMoveSpeedPenalty:
+      baseValue: 0
+  - baseSkill: {fileID: 0}
+    activeResourceType: 0
+    currentCooldownTimer: 0
+    activeElement: 0
+    activePrefab: {fileID: 0}
+    activeAnimation: 
+    activeTags: 
+    activeSkillCost:
+      baseValue: 0
+    activeDamageMultiplier:
+      baseValue: 0
+    activeHitRatio:
+      baseValue: 0
+    activeDotRatio:
+      baseValue: 0
+    activeMeleeRange:
+      baseValue: 0
+    activeCooldown:
+      baseValue: 0
+    activeAoeRadius:
+      baseValue: 0
+    activeDuration:
+      baseValue: 0
+    activeAoeDamageMultiplier:
+      baseValue: 0
+    activeProjectileSpeed:
+      baseValue: 0
+    activeProjectileRange:
+      baseValue: 0
+    activeStatusMod:
+      baseValue: 0
+    activeAnimationSpeed:
+      baseValue: 0
+    activeMoveSpeedPenalty:
+      baseValue: 0
+  currentCastingSkill:
+    baseSkill: {fileID: 0}
+    activeResourceType: 0
+    currentCooldownTimer: 0
+    activeElement: 0
+    activePrefab: {fileID: 0}
+    activeAnimation: 
+    activeTags: 
+    activeSkillCost:
+      baseValue: 0
+    activeDamageMultiplier:
+      baseValue: 0
+    activeHitRatio:
+      baseValue: 0
+    activeDotRatio:
+      baseValue: 0
+    activeMeleeRange:
+      baseValue: 0
+    activeCooldown:
+      baseValue: 0
+    activeAoeRadius:
+      baseValue: 0
+    activeDuration:
+      baseValue: 0
+    activeAoeDamageMultiplier:
+      baseValue: 0
+    activeProjectileSpeed:
+      baseValue: 0
+    activeProjectileRange:
+      baseValue: 0
+    activeStatusMod:
+      baseValue: 0
+    activeAnimationSpeed:
+      baseValue: 0
+    activeMoveSpeedPenalty:
+      baseValue: 0
+  rightWeaponSpawnPoint: {fileID: 7675242100096880428}
+  leftWeaponSpawnPoint: {fileID: 2430735241357481196}
+  inCombat:
+    _value: 0
+  combatTimeoutDuration: 5
+  timeSinceLastCombatAction: 0
+  skillCooldowns:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  defaultAISkills:
+  - {fileID: 11400000, guid: 9ff1f2483c370380cad808e89a6a1779, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &8276928562672054624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a298092b7c20f49a7ca7cb1a0579e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIEquipmentManager
+--- !u!114 &4133397247205129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360c9a5d51757c6419d1fe2737f6746b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIInventoryManager
+--- !u!195 &1483030214864612060
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 2.5
+  m_Acceleration: 15
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!54 &697097875710544440
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &2670332190522362189
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6743942100581725148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5e05c5b0509214d911dd005a610d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ECM2::ECM2.CharacterMovement
+  _planeConstraint: 0
+  _rootTransform: {fileID: 0}
+  _rootTransformOffset: {x: 0, y: 0, z: 0}
+  _radius: 0.5
+  _height: 2
+  _slopeLimit: 45
+  _stepOffset: 0.45
+  _perchOffset: 0.5
+  _perchAdditionalHeight: 0.4
+  _slopeLimitOverride: 0
+  _useFlatTop: 0
+  _useFlatBaseForGroundChecks: 0
+  _collisionLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  _triggerInteraction: 1
+  _advanced:
+    minMoveDistance: 0
+    maxMovementIterations: 5
+    maxDepenetrationIterations: 1
+    useFastGeomNormalPath: 0
+    enablePhysicsInteraction: 0
+    allowPushCharacters: 0
+    impartPlatformMovement: 0
+    impartPlatformRotation: 0
+    impartPlatformVelocity: 0
+  _minSlopeLimit: 0.7069833
+--- !u!114 &6359899909132056353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cf32970eac4c9498a96ba8d86aad38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ECM2::ECM2.Character
+  _rotationMode: 1
+  _rotationRate: 540
+  _startingMovementMode: 1
+  _maxWalkSpeed: 5
+  _minAnalogWalkSpeed: 0
+  _maxAcceleration: 20
+  _brakingDecelerationWalking: 20
+  _groundFriction: 8
+  _canEverCrouch: 1
+  _crouchedHeight: 1.25
+  _unCrouchedHeight: 2
+  _maxWalkSpeedCrouched: 3
+  _maxFallSpeed: 40
+  _brakingDecelerationFalling: 0
+  _fallingLateralFriction: 0.3
+  _airControl: 0.3
+  _canEverJump: 1
+  _canJumpWhileCrouching: 1
+  _jumpMaxCount: 1
+  _jumpImpulse: 5
+  _jumpMaxHoldTime: 0
+  _jumpMaxPreGroundedTime: 0
+  _jumpMaxPostGroundedTime: 0
+  _maxFlySpeed: 10
+  _brakingDecelerationFlying: 0
+  _flyingFriction: 1
+  _maxSwimSpeed: 3
+  _brakingDecelerationSwimming: 0
+  _swimmingFriction: 0
+  _buoyancy: 1
+  _gravity: {x: 0, y: -9.81, z: 0}
+  _gravityScale: 1
+  _useRootMotion: 0
+  _impartPlatformMovement: 0
+  _impartPlatformRotation: 0
+  _impartPlatformVelocity: 0
+  _enablePhysicsInteraction: 0
+  _applyPushForceToCharacters: 0
+  _applyStandingDownwardForce: 0
+  _mass: 1
+  _pushForceScale: 1
+  _standingDownwardForceScale: 1
+  _camera: {fileID: 0}
+--- !u!114 &1006161223514242940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168566156079214948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466e3a0c016a4704eb21fe8b8c252421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KE.TargetHighlight
+  enemyRenderers:
+  - {fileID: 4094966421834137733}
+  highlightMaterial: {fileID: 2100000, guid: 1f441837adb11f84ab3c4211670530e3, type: 2}
+--- !u!1 &8225046059917134502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3851474291853128262}
+  - component: {fileID: 4094966421834137733}
+  m_Layer: 6
+  m_Name: SK_Tetruncivermis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3851474291853128262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8225046059917134502}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 185872294589294200}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &4094966421834137733
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8225046059917134502}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: fc75bb5da3331ff438604b289acc99a7, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  serializedVersion: 2
+  m_Quality: 4
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: -869371322825086163, guid: a4a4af69cffe3044cb1ae6eff34d0752, type: 3}
+  m_Bones:
+  - {fileID: 7069432499203982336}
+  - {fileID: 2858977974731672471}
+  - {fileID: 2430735241357481196}
+  - {fileID: 2222597510360254601}
+  - {fileID: 5924376758943528536}
+  - {fileID: 6365167856891607381}
+  - {fileID: 5743709383820919154}
+  - {fileID: 15365209019770166}
+  - {fileID: 1943287243493149518}
+  - {fileID: 5313722736047943598}
+  - {fileID: 7366420568388680588}
+  - {fileID: 2555872717849574153}
+  - {fileID: 7675242100096880428}
+  - {fileID: 3934214692057015932}
+  - {fileID: 2618321782325548164}
+  - {fileID: 4770220085950779524}
+  - {fileID: 8414811063752837048}
+  - {fileID: 513875187506253721}
+  - {fileID: 5994572971681842147}
+  - {fileID: 5003879003393233959}
+  - {fileID: 5072066011998973146}
+  - {fileID: 7043296259006938441}
+  - {fileID: 405573392239903214}
+  - {fileID: 3238701294666132059}
+  - {fileID: 5388770023749534777}
+  - {fileID: 563437823088486059}
+  - {fileID: 1538514686540045002}
+  - {fileID: 6788329276969601540}
+  - {fileID: 8142140074816826394}
+  - {fileID: 3591525962916855473}
+  - {fileID: 6040147366634923894}
+  - {fileID: 3280212332853942253}
+  - {fileID: 6199976226611112596}
+  - {fileID: 5813659955987980828}
+  - {fileID: 690204593512212716}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 2618321782325548164}
+  m_AABB:
+    m_Center: {x: 0.0045818537, y: 0.36295012, z: 0.016642883}
+    m_Extent: {x: 0.34911793, y: 1.2756908, z: 0.432415}
+  m_DirtyAABB: 0
+--- !u!1 &8291616139612823091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2618321782325548164}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Pelvis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2618321782325548164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291616139612823091}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0000000618183, y: 0.7071067, z: -0.000000061818284, w: 0.7071069}
+  m_LocalPosition: {x: -3.3881317e-23, y: -0.000000008742278, z: 0.19999999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2858977974731672471}
+  - {fileID: 4770220085950779524}
+  m_Father: {fileID: 81729340671307361}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8594893126871663584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 563437823088486059}
+  m_Layer: 6
+  m_Name: Tetruncivermis_ToothLeft4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &563437823088486059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8594893126871663584}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.6556261, y: 0.39266875, z: 0.24411853, w: 0.5969688}
+  m_LocalPosition: {x: -0.15066089, y: -0.038423434, z: -0.12115902}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7675242100096880428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9175517497005218309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8414811063752837048}
+  m_Layer: 6
+  m_Name: Tetruncivermis_Tail2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8414811063752837048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9175517497005218309}
+  serializedVersion: 2
+  m_LocalRotation: {x: -8.9175264e-11, y: -0.000000003258618, z: -0.027355738, w: 0.9996258}
+  m_LocalPosition: {x: -0.19748087, y: -0.00000006139278, z: 0.000000023501864}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 513875187506253721}
+  m_Father: {fileID: 4770220085950779524}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

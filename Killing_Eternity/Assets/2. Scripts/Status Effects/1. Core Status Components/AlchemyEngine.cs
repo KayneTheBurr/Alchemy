@@ -40,7 +40,7 @@ namespace KE
 
         public Status CheckForElementalReaction(Status incomingEffect, Status existingEffect)
         {
-            var output = Status.None;
+            var output = incomingEffect;
 
             switch (incomingEffect)
             {
@@ -114,7 +114,6 @@ namespace KE
                 
 
                 default:
-                    output = Status.None;
                     break;
             }
 

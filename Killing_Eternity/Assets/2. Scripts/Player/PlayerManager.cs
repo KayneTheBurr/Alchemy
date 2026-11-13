@@ -52,31 +52,17 @@ namespace KE
         {
             base.OnIsMovingChanged(oldStatus, newStatus);
         }
-        public override void TakeDamage(float damageValue, Element element, IDamageable damageSource = null, bool isDoT = false)
+        protected override void HandleDeath()
         {
-            base.TakeDamage(damageValue, element);
+            base.HandleDeath();
+            // Trigger player death screen / respawn logic
+        }
 
-            float rawResistance = characterStatsManager.GetResistance(element);
-            float effectiveResistance = Mathf.Clamp(rawResistance, -100f, 75f);
-
-            float damageMultiplier = 1f - (effectiveResistance / 100f);
-
-            float damageAmplifirer = characterStatsManager.GetElementalDamageModifier(element);
-
-            float finalDamage = Mathf.Max(damageValue * damageMultiplier * damageAmplifirer, 0f);
-
-            characterStatsManager.currentHealth.Value -= finalDamage;
-
-            if (characterStatsManager.currentHealth.Value <= 0)
-            {
-                isDead.Value = true;
-                // Trigger player death screen / respawn logic
-            }
-            else
-            {
-                // Update Player Health UI
-                // Trigger Player Hit Animation
-            }
+        protected override void HandleHitReaction(IDamageable damageSource)
+        {
+            base.HandleHitReaction(damageSource);
+            // Update Player UI
+            // Trigger hit Animation(?) and feedback
         }
     }
 }

@@ -68,7 +68,10 @@ namespace KE
                 if (hit.gameObject == character.gameObject) continue;
 
                 IDamageable hitTarget = hit.GetComponent<IDamageable>();
-                if (hitTarget != null && !hitTarget.IsDead())
+
+                bool isAlly = hitTarget != null && hitTarget.MyFaction == Faction.Ally;
+
+                if (hitTarget != null && !hitTarget.IsDead() && !isAlly)
                 {
                     validTargets.Add(hitTarget);
                 }

@@ -1,4 +1,5 @@
 using KE;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum NormalAIState { Idle, Chase, Attack }
@@ -123,14 +124,27 @@ public class NormalAIManager : BaseAIManager
         if (distanceToTarget <= currentEngagementRange)
         {
             currentState = SwitchState(NormalAIState.Attack);
+            return;
         }
-        else
-        {
-            aiCharacter.navMeshAgent.isStopped = false;
-            aiCharacter.navMeshAgent.SetDestination(aiCharacter.aiCombatManager.currentTarget.GetTransform().position);
 
-            SnapRotationTowards(aiCharacter.navMeshAgent.steeringTarget, aiCharacter.aiMovementManager.rotationSpeed);
+        //check for another skill that si ready and IS in range
+        int opportunisticSkillIndex = GetReadySkillInRange(distanceToTarget);
+        if (opportunisticSkillIndex != -1)
+        {
+            // Swap to the better skill
+            queuedSkillIndex = opportunisticSkillIndex;
+            SetEngagementRangeForSkill(queuedSkillIndex);
+
+            currentState = SwitchState(NormalAIState.Attack);
+            return;
         }
+
+        // no skills ready and in range, chase more 
+        aiCharacter.navMeshAgent.isStopped = false;
+        aiCharacter.navMeshAgent.SetDestination(aiCharacter.aiCombatManager.currentTarget.GetTransform().position);
+
+        SnapRotationTowards(aiCharacter.navMeshAgent.steeringTarget, aiCharacter.aiMovementManager.rotationSpeed);
+
     }
 
     private void AttemptAttack()
@@ -159,30 +173,96 @@ public class NormalAIManager : BaseAIManager
         if (aiCharacter.characterCombatManager.IsSkillReady(queuedSkillIndex))
         {
             aiCharacter.characterCombatManager.ExecuteSkill(queuedSkillIndex);
+            EvaluateCombatOptions();
+        }
+        else
+        {
+            EvaluateCombatOptions();
         }
     }
 
     private void EvaluateCombatOptions()
     {
-        //TODO  add in a randomizer to or some way to choose which attack to use, just using one base attack for now 
+        // check all 6 skill slots
+        List<int> readySkillIndices = new List<int>();
 
-        queuedSkillIndex = 0;
-        ActiveSkillInstance activeSkill = aiCharacter.characterCombatManager.activeSkills[queuedSkillIndex];
+        for (int i = 0; i < aiCharacter.characterCombatManager.activeSkills.Length; i++)
+        {
+            // check if skill is set and if its off cooldown
+            if (aiCharacter.characterCombatManager.activeSkills[i] != null &&
+                aiCharacter.characterCombatManager.IsSkillReady(i))
+            {
+                readySkillIndices.Add(i);
+            }
+        }
 
+        // pick a random skill thats not on cooldown 
+        if (readySkillIndices.Count > 0)
+        {
+            queuedSkillIndex = readySkillIndices[Random.Range(0, readySkillIndices.Count)];
+            SetEngagementRangeForSkill(queuedSkillIndex);
+        }
+
+        //ActiveSkillInstance activeSkill = aiCharacter.characterCombatManager.activeSkills[queuedSkillIndex];
+
+        //if (activeSkill != null)
+        //{
+        //    if (activeSkill.baseSkill.skillTags.Contains(SkillTag.Melee))
+        //    {
+        //        currentEngagementRange = activeSkill.baseSkill.baseMeleeRange;
+        //    }
+        //    else
+        //    {
+        //        currentEngagementRange = activeSkill.activeProjectileRange.Value;
+
+        //        //set stopping distance to just a bit less than the current attack distance
+        //        aiCharacter.navMeshAgent.stoppingDistance = currentEngagementRange * 0.8f;
+        //    }
+        //}
+    }
+    private int GetReadySkillInRange(float currentDistanceToTarget)
+    {
+        List<int> validSkillIndices = new List<int>();
+
+        for (int i = 0; i < aiCharacter.characterCombatManager.activeSkills.Length; i++)
+        {
+            ActiveSkillInstance skill = aiCharacter.characterCombatManager.activeSkills[i];
+
+            if (skill != null && aiCharacter.characterCombatManager.IsSkillReady(i))
+            {
+                float range = GetSkillRange(skill);
+
+                // If the player is within this skill's range right now, it's valid to use instead
+                if (currentDistanceToTarget <= range)
+                {
+                    validSkillIndices.Add(i);
+                }
+            }
+        }
+
+        if (validSkillIndices.Count > 0)
+        {
+            return validSkillIndices[Random.Range(0, validSkillIndices.Count)];
+        }
+
+        return -1; // No skills are currently in range
+    }
+    private void SetEngagementRangeForSkill(int index)
+    {
+        ActiveSkillInstance activeSkill = aiCharacter.characterCombatManager.activeSkills[index];
         if (activeSkill != null)
         {
-            if (activeSkill.baseSkill.skillTags.Contains(SkillTag.Melee))
-            {
-                currentEngagementRange = activeSkill.baseSkill.baseMeleeRange;
-            }
-            else
-            {
-                currentEngagementRange = activeSkill.baseSkill.projectileSpeed * activeSkill.baseSkill.baseDuration * 0.8f;
-            }
-
-            //set stopping distance to just a bit less than the current attack distance
+            currentEngagementRange = GetSkillRange(activeSkill);
             aiCharacter.navMeshAgent.stoppingDistance = currentEngagementRange * 0.8f;
         }
+    }
+    private float GetSkillRange(ActiveSkillInstance skill)
+    {
+        if (skill.baseSkill.skillTags.Contains(SkillTag.Melee))
+        {
+            return skill.baseSkill.baseMeleeRange;
+        }
+        return skill.activeProjectileRange.Value;
     }
 
     private void SnapRotationTowards(Vector3 targetPosition, float rotationSpeed)

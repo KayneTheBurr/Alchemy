@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7492f2d7266fe2c45955d8a0787ad9c2, type: 3}
+  m_Name: Golem Slam
+  m_EditorClassIdentifier: Assembly-CSharp::Skill
+  skillName: Golem Swipe
+  skillDescription: 
+  skillID: 0
+  skillIcon: {fileID: 0}
+  skillElement: 5
+  skillTags: 030000000200000005000000
+  spawnLocation: 2
+  baseSkillCost: 0
+  baseResourceType: 2
+  baseDamage: 40
+  hitRatio: 1
+  dotRatio: 1
+  baseMeleeRange: 7
+  baseCooldown: 5
+  baseDuration: 0
+  projectileSpeed: 20
+  projectileRange: 10
+  basePierceCount: 0
+  baseForkCount: 0
+  baseChainCount: 0
+  baseAdditionalProjectiles: 0
+  baseAoeRadius: 4
+  baseAoeDamageMult: 0.5
+  baseCritChance: 0
+  baseCritDamage: 1
+  baseStatusMod: 1
+  canMoveWhileCasting: 0
+  canRotateWhileCasting: 0
+  baseAnimationSpeed: 0.8
+  applyRootMotion: 0
+  moveSpeedPenalty: 0.5
+  skillAnimation: Melee_Attack_04
+  skillPrefab: {fileID: 5185929748655207495, guid: 4af8347a0d8870a099d3c69d53dc0f13, type: 3}

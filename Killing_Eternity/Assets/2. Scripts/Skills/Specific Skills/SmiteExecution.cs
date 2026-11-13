@@ -68,7 +68,10 @@ namespace KE {
                 if (hit.gameObject == character.gameObject) continue;
 
                 IDamageable splashTarget = hit.GetComponent<IDamageable>();
-                if (splashTarget != null && !splashTarget.IsDead())
+
+                bool isAlly = splashTarget != null && splashTarget.MyFaction == Faction.Ally;
+
+                if (splashTarget != null && !splashTarget.IsDead() && !isAlly)
                 {
                     validTargets.Add(splashTarget);
                 }

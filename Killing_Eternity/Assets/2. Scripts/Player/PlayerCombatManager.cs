@@ -10,6 +10,8 @@ namespace KE
         public Skill testFireballSO;
         public Skill testSmiteSO;
         public Skill testIceLanceSO;
+        public Skill testCurseSO;
+        public Skill testEarthquakeSO;
         public SkillNode testIceConversionNode;
         public SkillNode testIceDamageNode;
 
@@ -73,6 +75,16 @@ namespace KE
             {
                 player.skillTreeManager.treeSockets[0].EquipPrimarySkill(testIceLanceSO);
                 AssignSkillToHotbar(player.skillTreeManager.treeSockets[0].primarySkill, 0);
+            }
+            if(testCurseSO != null && player.skillTreeManager != null)
+            {
+                player.skillTreeManager.treeSockets[2].EquipPrimarySkill(testCurseSO);
+                AssignSkillToHotbar(player.skillTreeManager.treeSockets[2].primarySkill, 2);
+            }
+            if (testEarthquakeSO != null && player.skillTreeManager != null)
+            {
+                player.skillTreeManager.treeSockets[3].EquipPrimarySkill(testEarthquakeSO);
+                AssignSkillToHotbar(player.skillTreeManager.treeSockets[3].primarySkill, 3);
             }
         }
         protected override void Update()

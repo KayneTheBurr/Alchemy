@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7492f2d7266fe2c45955d8a0787ad9c2, type: 3}
+  m_Name: Curse
+  m_EditorClassIdentifier: Assembly-CSharp::Skill
+  skillName: Curse
+  skillDescription: 
+  skillID: 4
+  skillIcon: {fileID: 0}
+  skillElement: 1
+  skillTags: 0b000000010000000a000000
+  spawnLocation: 3
+  baseSkillCost: 20
+  baseResourceType: 2
+  baseDamage: 75
+  hitRatio: 0
+  dotRatio: 1
+  baseMeleeRange: 0
+  baseCooldown: 0
+  baseDuration: 10
+  projectileSpeed: 0
+  projectileRange: 0
+  basePierceCount: 0
+  baseForkCount: 0
+  baseChainCount: 0
+  baseAdditionalProjectiles: 0
+  baseAoeRadius: 0
+  baseAoeDamageMult: 0
+  baseCritChance: 0.05
+  baseCritDamage: 1.5
+  baseStatusMod: 5
+  canMoveWhileCasting: 1
+  canRotateWhileCasting: 1
+  baseAnimationSpeed: 1
+  applyRootMotion: 0
+  moveSpeedPenalty: 0.4
+  skillAnimation: Buff_01
+  skillPrefab: {fileID: 94485272981027847, guid: d7e8e484bd9a7c841af260453dfbad55, type: 3}

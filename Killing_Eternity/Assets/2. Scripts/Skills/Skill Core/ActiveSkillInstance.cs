@@ -2,6 +2,7 @@ using KE;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [Serializable]
 public class ActiveSkillInstance
@@ -20,12 +21,15 @@ public class ActiveSkillInstance
     [Header("Localized Stats")]
     public CharacterStat activeSkillCost;
     public CharacterStat activeDamageMultiplier;
+    public CharacterStat activeHitRatio;
+    public CharacterStat activeDotRatio;
     public CharacterStat activeMeleeRange;
     public CharacterStat activeCooldown;
     public CharacterStat activeAoeRadius;
     public CharacterStat activeDuration;
     public CharacterStat activeAoeDamageMultiplier;
     public CharacterStat activeProjectileSpeed;
+    public CharacterStat activeProjectileRange;
     public CharacterStat activeStatusMod;
     public CharacterStat activeAnimationSpeed;
     public CharacterStat activeMoveSpeedPenalty;
@@ -44,6 +48,8 @@ public class ActiveSkillInstance
 
         activeSkillCost = new CharacterStat(skillSO.baseSkillCost);
         activeDamageMultiplier = new CharacterStat(1.0f);
+        activeHitRatio = new CharacterStat(skillSO.hitRatio);
+        activeDotRatio = new CharacterStat(skillSO.dotRatio);
         activeMeleeRange = new CharacterStat(skillSO.baseMeleeRange);
 
         activeCooldown = new CharacterStat(skillSO.baseCooldown);
@@ -51,6 +57,7 @@ public class ActiveSkillInstance
         activeAoeDamageMultiplier = new CharacterStat(skillSO.baseAoeDamageMult);
         activeDuration = new CharacterStat(skillSO.baseDuration);
         activeProjectileSpeed = new CharacterStat(skillSO.projectileSpeed);
+        activeProjectileRange = new CharacterStat(skillSO.projectileRange);
         activeAnimationSpeed = new CharacterStat(skillSO.baseAnimationSpeed);
         activeStatusMod = new CharacterStat(skillSO.baseStatusMod);
         activeMoveSpeedPenalty = new CharacterStat(skillSO.moveSpeedPenalty);
@@ -248,6 +255,7 @@ public class ActiveSkillInstance
         {
             //always use the all damage multiplier
             hitMultiplier *= character.characterStatsManager.allDamageModifier.Value;
+            hitMultiplier *= activeHitRatio.Value;
 
             // Add Spell or Attack damage, dont affect buildup
             // cehck for skill tags attack vs spell vs whatever later just globally using spell damge for now 
@@ -268,6 +276,7 @@ public class ActiveSkillInstance
         foreach (Element el in keys)
         {
             float elementalMod = 1f;
+
             if (character != null && character.characterStatsManager != null)
             {
                 elementalMod = character.characterStatsManager.GetElementalDamageModifier(el);
@@ -288,6 +297,7 @@ public class ActiveSkillInstance
         {
             float dotMultiplier = character.characterStatsManager.dotDamageMultiplier.Value;
             dotMultiplier *= character.characterStatsManager.allDamageModifier.Value;
+            dotMultiplier *= activeDotRatio.Value;
 
             List<Element> keys = new List<Element>(dotPayload.Keys);
             foreach (Element el in keys)

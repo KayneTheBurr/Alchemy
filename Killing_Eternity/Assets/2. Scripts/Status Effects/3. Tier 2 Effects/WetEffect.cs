@@ -14,7 +14,8 @@ public class WetEffect : StatusEffect
     {
         base.StartEffect();
         CharacterManager charManager = target.GetTransform().GetComponent<CharacterManager>();
-        // Spawn VFX
+        DamageableEnv envObj = target.GetTransform().GetComponent<DamageableEnv>();
+
         GameObject vfxPrefab = AlchemyEngine.instance.tuningData.wetVFXPrefab;
         if (vfxPrefab != null)
         {
@@ -24,7 +25,12 @@ public class WetEffect : StatusEffect
                 activeVFX.GetComponent<OverlayFX>().targetRenderer = charManager.mainMesh;
                 activeVFX.GetComponent<OverlayFX>().InitializeWithMesh();
             }
-            // connect to overlay FX script automatically?
+            else if (envObj != null)
+            {
+
+                activeVFX.GetComponent<OverlayFX>().targetRenderer = envObj.mainMesh;
+                activeVFX.GetComponent<OverlayFX>().InitializeWithMesh();
+            }
         }
 
         float sparkVulnerability = AlchemyEngine.instance.tuningData.wetSparkVulnerability;

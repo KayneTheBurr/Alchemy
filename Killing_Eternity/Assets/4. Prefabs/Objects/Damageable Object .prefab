@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1996179282694020367}
   - component: {fileID: 3370637458090471915}
   - component: {fileID: 7061308940253279940}
+  - component: {fileID: 2685730552776808625}
   m_Layer: 7
   m_Name: 'Damageable Object '
   m_TagString: Untagged
@@ -133,12 +134,13 @@ MonoBehaviour:
     _value: 100
   objectName: Damageable Object
   faction: 3
+  mainMesh: {fileID: 4103593063634270250}
   bloodDefense: 100
   bileDefense: 100
   fireDefense: 100
   iceDefense: 100
   sparkDefense: 100
-  stoneDefense: 100
+  stoneDefense: 20
 --- !u!114 &3370637458090471915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,3 +186,19 @@ MonoBehaviour:
   enemyRenderers:
   - {fileID: 4103593063634270250}
   highlightMaterial: {fileID: 2100000, guid: 1f441837adb11f84ab3c4211670530e3, type: 2}
+--- !u!208 &2685730552776808625
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3310517146275221191}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

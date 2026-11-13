@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class ChillEffect : StatusEffect
 {
-    //public float slowPercentage = -0.30f;
-    private CharacterManager affectedCharacter;
+    private GameObject activeVFX;
 
     public ChillEffect()
     {
@@ -14,35 +13,50 @@ public class ChillEffect : StatusEffect
 
     protected override void StartEffect()
     {
-        //Debug.Log("Chill Applied");
-        MonoBehaviour targetMono = target as MonoBehaviour;
+        CharacterManager charTarget = target.GetTransform().GetComponent<CharacterManager>();
 
         float slowPercentage = -1 * AlchemyEngine.instance.tuningData.chillAmount;
 
-        if (targetMono != null)
-        {
-            affectedCharacter = targetMono.GetComponent<CharacterManager>();
-        }
-
-        if (affectedCharacter != null && affectedCharacter.characterStatsManager != null)
+        if (charTarget != null && charTarget.characterStatsManager != null)
         {
             // Apply the debuff
             StatModifier actionSlow = new StatModifier(slowPercentage, StatModType.PercentAdd, this);
             StatModifier moveSlow = new StatModifier(slowPercentage, StatModType.PercentAdd, this);
 
-            affectedCharacter.characterStatsManager.actionSpeed.AddModifier(actionSlow);
-            affectedCharacter.characterStatsManager.moveSpeedMultiplier.AddModifier(moveSlow);
+            charTarget.characterStatsManager.actionSpeed.AddModifier(actionSlow);
+            charTarget.characterStatsManager.moveSpeedMultiplier.AddModifier(moveSlow);
         }
 
-        // add in the frost vfx here
+        DamageableEnv envObj = target.GetTransform().GetComponent<DamageableEnv>();
+        GameObject vfxPrefab = AlchemyEngine.instance.tuningData.chillVFXPrefab;
+        if (vfxPrefab != null)
+        {
+            activeVFX = Object.Instantiate(vfxPrefab, target.GetTransform());
+            if (charTarget != null)
+            {
+                activeVFX.GetComponent<OverlayFX>().targetRenderer = charTarget.mainMesh;
+                activeVFX.GetComponent<OverlayFX>().InitializeWithMesh();
+            }
+            else if (envObj != null)
+            {
+
+                activeVFX.GetComponent<OverlayFX>().targetRenderer = envObj.mainMesh;
+                activeVFX.GetComponent<OverlayFX>().InitializeWithMesh();
+            }
+        }
     }
 
     public override void RemoveEffect()
     {
-        if (affectedCharacter != null && affectedCharacter.characterStatsManager != null)
+        base.RemoveEffect();
+
+        if (activeVFX != null) Object.Destroy(activeVFX);
+
+        CharacterManager charTarget = target.GetTransform().GetComponent<CharacterManager>();
+        if (charTarget != null && charTarget.characterStatsManager != null)
         {
-            affectedCharacter.characterStatsManager.actionSpeed.RemoveAllModifiersFromSource(this);
-            affectedCharacter.characterStatsManager.moveSpeedMultiplier.RemoveAllModifiersFromSource(this);
+            charTarget.characterStatsManager.actionSpeed.RemoveAllModifiersFromSource(this);
+            charTarget.characterStatsManager.moveSpeedMultiplier.RemoveAllModifiersFromSource(this);
         }
     }
 }

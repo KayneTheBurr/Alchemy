@@ -22,10 +22,13 @@ MonoBehaviour:
   baseSkillCost: 0
   baseResourceType: 2
   baseDamage: 10
+  hitRatio: 1
+  dotRatio: 1
   baseMeleeRange: 3
   baseCooldown: 3
   baseDuration: 0
   projectileSpeed: 20
+  projectileRange: 10
   basePierceCount: 0
   baseForkCount: 0
   baseChainCount: 0
@@ -35,5 +38,10 @@ MonoBehaviour:
   baseCritChance: 0.05
   baseCritDamage: 1.5
   baseStatusMod: 1
+  canMoveWhileCasting: 1
+  canRotateWhileCasting: 1
+  baseAnimationSpeed: 1
+  applyRootMotion: 0
+  moveSpeedPenalty: 0.9
   skillAnimation: Melee_Attack_01
   skillPrefab: {fileID: 2528542216008327359, guid: 3ad90e72de878ba4f9aaf0e83a4d47f7, type: 3}

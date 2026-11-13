@@ -20,12 +20,21 @@ public class Skill : ScriptableObject
     public int baseSkillCost = 10;
     public ResourceType baseResourceType = ResourceType.Mana;
 
-    [Header("Combat Data ( 0 if unused")]
+    [Header("Damage")]
     public float baseDamage = 10f;
+
+    [Header("Damage Ratios")]
+    [Tooltip("1.0 = 100% of core damage becomes Hit damage. 0 = no direct hit damage.")]
+    public float hitRatio = 1.0f;
+    [Tooltip("1.0 = 100% of core damage becomes DoT damage.")]
+    public float dotRatio = 1.0f;
+
+    [Header("Combat Data ( 0 if unused")]
     public float baseMeleeRange = 2f;
     public float baseCooldown = 0f;
     public float baseDuration = 0f;
     public float projectileSpeed = 20f;
+    public float projectileRange = 10f;
 
     [Header("Projectile Mechanics")]
     public int basePierceCount = 0;

@@ -17,6 +17,7 @@ public class DamageableEnv : MonoBehaviour, IDamageable
     public string objectName = "Damageable Object"; 
     public Faction faction = Faction.Neutral;
     public Faction MyFaction => faction;
+    public MeshRenderer mainMesh;
 
     [Header("Elemental Resistances (% mitigation of damage of that element")]
     public float bloodDefense = 0f;

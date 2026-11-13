@@ -3,24 +3,41 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Alchemy Tuning Data")]
 public class AlchemyTuningData : ScriptableObject
 {
+    [Header("Core Elemental Values")]
+    public float bileShieldDamageMultiplier = 2.0f;
+
+
     [Header("Base Status Effects")]
     [Header("Bleed")]
+    public float bleedDuration = 5f;
+    public float bleedDamageRatio = 0.1f;
+    public float bleedDamageTakenDebuffMultiplier = 0.15f;
+    public GameObject bleedVFXPrefab;
 
     [Header("Toxin")]
+    public float toxinDuration = 5f;
+    public float toxinDamageRatio = 0.1f;
+    public GameObject toxinVFXPrefab;
 
     [Header("Burn")]
     public float burnDuration = 3f;
     public float burnDamageRatio = 0.30f;
+    public float burnDamageBonus = 0.1f;
     public GameObject burnVFXPrefab;
 
     [Header("Chill")]
     public float chillDuration = 6f;
     public float chillAmount = 0.3f;
     public GameObject chillVFXPrefab;
-    
+
     [Header("Shock")]
+    public float shockDuration = 5f;
+    public GameObject shockVFXPrefab;
 
     [Header("Sunder")]
+    public float sunderDuration = 12f;
+    public float sunderArmourBreakMult = 0.2f;
+    public GameObject sunderVFXPrefab;
 
     [Header(" Tier 2 Effects")]
 
@@ -44,5 +61,5 @@ public class AlchemyTuningData : ScriptableObject
 
     [Header("Frozen (Wet + Chill")]
     public float frozenDuration = 4f;
-    public GameObject frozenVFXPrefab;
+    public Material frozenMaterial;
 }

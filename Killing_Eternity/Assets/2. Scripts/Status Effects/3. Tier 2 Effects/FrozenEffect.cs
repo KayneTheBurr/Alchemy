@@ -3,8 +3,8 @@ using KE;
 
 public class FrozenEffect : StatusEffect
 {
-    private GameObject activeVFX;
     private Animator targetAnimator;
+    private Renderer targetRenderer; private Material[] originalMaterials;
 
     public FrozenEffect()
     {
@@ -16,21 +16,27 @@ public class FrozenEffect : StatusEffect
     {
         base.StartEffect();
         CharacterManager charManager = target.GetTransform().GetComponent<CharacterManager>();
+        DamageableEnv envObj = target.GetTransform().GetComponent<DamageableEnv>();
 
-        //spawn vfx 
-        GameObject vfxPrefab = AlchemyEngine.instance.tuningData.frozenVFXPrefab;
-        if (vfxPrefab != null)
+        // material swap when frozen
+        if (charManager != null) targetRenderer = charManager.mainMesh;
+        else if (envObj != null) targetRenderer = envObj.mainMesh;
+        if (targetRenderer != null && AlchemyEngine.instance.tuningData.frozenMaterial != null)
         {
-            activeVFX = Object.Instantiate(vfxPrefab, target.GetTransform());
-            if (charManager != null)
+            // Cache the exact material array the object had before freezing
+            originalMaterials = targetRenderer.sharedMaterials;
+
+            // Create a new array of the same length, filled entirely with the ice material
+            Material[] frozenMats = new Material[originalMaterials.Length];
+            for (int i = 0; i < frozenMats.Length; i++)
             {
-                activeVFX.GetComponent<OverlayFX>().targetRenderer = charManager.mainMesh;
-                activeVFX.GetComponent<OverlayFX>().InitializeWithMesh();
+                frozenMats[i] = AlchemyEngine.instance.tuningData.frozenMaterial;
             }
+
+            targetRenderer.sharedMaterials = frozenMats;
         }
 
         // stop movement mid animation
-       
         if (charManager != null)
         {
             charManager.canMove = false;
@@ -52,8 +58,10 @@ public class FrozenEffect : StatusEffect
     public override void RemoveEffect()
     {
         base.RemoveEffect();
-
-        if (activeVFX != null) Object.Destroy(activeVFX);
+        if (targetRenderer != null && originalMaterials != null)
+        {
+            targetRenderer.sharedMaterials = originalMaterials;
+        }
 
         CharacterManager charManager = target.GetTransform().GetComponent<CharacterManager>();
         if (charManager != null)

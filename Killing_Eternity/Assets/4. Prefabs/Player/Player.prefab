@@ -1777,6 +1777,8 @@ MonoBehaviour:
   characterInventoryManager: {fileID: 0}
   characterEquipmentManager: {fileID: 0}
   statusManager: {fileID: 0}
+  characterLevel:
+    _value: 1
   characterName:
     _value: Alchemist
   faction: 0
@@ -1823,6 +1825,22 @@ MonoBehaviour:
   baseHealth: 100
   baseMana: 100
   baseStamina: 100
+  staminaRegenTimer: 0
+  staminaRegenDelay:
+    baseValue: 1
+  staminaCostModifier:
+    baseValue: 1
+  staminaRegenPerSec:
+    baseValue: 20
+  inCombatStaminaRegenScaler: 1
+  manaRegenTimer: 0
+  manaRegenDelay:
+    baseValue: 0.25
+  manaCostModifier:
+    baseValue: 1
+  manaRegenPerSecond:
+    baseValue: 20
+  inCombatManaRegenScaler: 1
   allDamageModifier:
     baseValue: 1
   spellDamageModifier:
@@ -1857,6 +1875,66 @@ MonoBehaviour:
     baseValue: 0
   flatAddedStoneDamage:
     baseValue: 0
+  critChance:
+    baseValue: 5
+  critDamageMultiplier:
+    baseValue: 1.5
+  statusBuildupMultiplier:
+    baseValue: 1
+  armourAmount:
+    baseValue: 0
+  maxArmorMitigation: 0.9
+  armorTuningFactor: 10
+  armourAppliedToAllElements:
+    baseValue: 0
+  averageDamageReceivedBase: 20
+  damageRecievedIncreasePerLevel: 15
+  evasionRating:
+    baseValue: 0
+  maxEvasionChance: 95
+  evasionResetWindow: 3
+  evasionScalingConstant: 25
+  shieldAmount:
+    baseValue: 10
+  currentShield:
+    _value: 0
+  shieldRegenDelay:
+    baseValue: 1
+  shieldRegenPerSec:
+    baseValue: 20
+  inCombatShieldRegenScaler: 1
+  allDamageReduction:
+    baseValue: 1
+  lifeRecoup:
+    baseValue: 0
+  manaRecoup:
+    baseValue: 0
+  shieldRecoup:
+    baseValue: 0
+  staminaRecoup:
+    baseValue: 0
+  recoupDuration:
+    baseValue: 4
+  lifeOnHit:
+    baseValue: 0
+  manaOnHit:
+    baseValue: 0
+  staminaOnHit:
+    baseValue: 0
+  shieldOnHit:
+    baseValue: 0
+  lifeStealAmount:
+    baseValue: 0
+  manaStealAmount:
+    baseValue: 0
+  staminaStealAmount:
+    baseValue: 0
+  shieldStealAmount:
+    baseValue: 0
+  flatLifeRegenPerSec:
+    baseValue: 1
+  percentLifeRegenPerSec:
+    baseValue: 0
   bloodDefense:
     baseValue: 0
   bileDefense:
@@ -1869,6 +1947,18 @@ MonoBehaviour:
     baseValue: 0
   stoneDefense:
     baseValue: 0
+  maxBloodResistance:
+    baseValue: 100
+  maxBileResistance:
+    baseValue: 100
+  maxFireResistance:
+    baseValue: 100
+  maxIceResistance:
+    baseValue: 100
+  maxSparkResistance:
+    baseValue: 100
+  maxStoneResistance:
+    baseValue: 100
   bloodDamageTakenMult:
     baseValue: 1
   bileDamageTakenMult:
@@ -1893,28 +1983,6 @@ MonoBehaviour:
     baseValue: 100
   stoneThreshold:
     baseValue: 100
-  staminaRegenTimer: 0
-  staminaRegenDelay:
-    baseValue: 1
-  staminaCostModifier:
-    baseValue: 1
-  staminaRegenPerSec:
-    baseValue: 20
-  inCombatStaminaRegenScaler: 1
-  manaRegenTimer: 0
-  manaRegenDelay:
-    baseValue: 0.25
-  manaCostModifier:
-    baseValue: 1
-  manaRegenPerSecond:
-    baseValue: 10
-  inCombatManaRegenScaler: 1
-  critChance:
-    baseValue: 5
-  critDamageMultiplier:
-    baseValue: 1.5
-  statusBuildupMultiplier:
-    baseValue: 1
   actionSpeed:
     baseValue: 1
   moveSpeedMultiplier:
@@ -1955,6 +2023,10 @@ MonoBehaviour:
       baseValue: 0
     activeDamageMultiplier:
       baseValue: 0
+    activeHitRatio:
+      baseValue: 0
+    activeDotRatio:
+      baseValue: 0
     activeMeleeRange:
       baseValue: 0
     activeCooldown:
@@ -1966,6 +2038,8 @@ MonoBehaviour:
     activeAoeDamageMultiplier:
       baseValue: 0
     activeProjectileSpeed:
+      baseValue: 0
+    activeProjectileRange:
       baseValue: 0
     activeStatusMod:
       baseValue: 0
@@ -1990,6 +2064,8 @@ MonoBehaviour:
   testFireballSO: {fileID: 11400000, guid: 5ec4bee2a1ec4f2448052998aa91bfd1, type: 2}
   testSmiteSO: {fileID: 11400000, guid: 6a0222b949fea6444ba08c552c561e76, type: 2}
   testIceLanceSO: {fileID: 11400000, guid: bc9b2a8905b8fc046bc75a149f2630b0, type: 2}
+  testCurseSO: {fileID: 11400000, guid: bc5af0397d7a60f45b392e2a87a1d3e0, type: 2}
+  testEarthquakeSO: {fileID: 11400000, guid: 278b3c70ee8c5da4f88a8428baad3710, type: 2}
   testIceConversionNode: {fileID: 0}
   testIceDamageNode: {fileID: 0}
   hasFireSkill: 0

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7492f2d7266fe2c45955d8a0787ad9c2, type: 3}
+  m_Name: Spawner Spawn
+  m_EditorClassIdentifier: Assembly-CSharp::Skill
+  skillName: Spawner Spawn
+  skillDescription: 
+  skillID: 0
+  skillIcon: {fileID: 0}
+  skillElement: 1
+  skillTags: 0100000006000000
+  spawnLocation: 1
+  baseSkillCost: 0
+  baseResourceType: 3
+  baseDamage: 10
+  hitRatio: 1
+  dotRatio: 1
+  baseMeleeRange: 3
+  baseCooldown: 3
+  baseDuration: 0
+  projectileSpeed: 0
+  projectileRange: 0
+  basePierceCount: 0
+  baseForkCount: 0
+  baseChainCount: 0
+  baseAdditionalProjectiles: 0
+  baseAoeRadius: 1.5
+  baseAoeDamageMult: 0.5
+  baseCritChance: 0.05
+  baseCritDamage: 1.5
+  baseStatusMod: 1
+  canMoveWhileCasting: 0
+  canRotateWhileCasting: 0
+  baseAnimationSpeed: 1
+  applyRootMotion: 0
+  moveSpeedPenalty: 0.5
+  skillAnimation: Ranged_Attack_01
+  skillPrefab: {fileID: 2528542216008327359, guid: 3ad90e72de878ba4f9aaf0e83a4d47f7, type: 3}

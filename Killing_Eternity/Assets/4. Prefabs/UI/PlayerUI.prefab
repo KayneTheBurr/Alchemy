@@ -131,10 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player HUD Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 1059837370046970803, guid: 259586c3c97af9545ab903789387afde, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 75
-      objectReference: {fileID: 0}
     - target: {fileID: 1684925094511360519, guid: 259586c3c97af9545ab903789387afde, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -156,6 +152,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3777688904984709978, guid: 259586c3c97af9545ab903789387afde, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927675006556819576, guid: 259586c3c97af9545ab903789387afde, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927675006556819576, guid: 259586c3c97af9545ab903789387afde, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -237,6 +241,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637339410062173296, guid: 259586c3c97af9545ab903789387afde, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7944699474591933944, guid: 259586c3c97af9545ab903789387afde, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7944699474591933944, guid: 259586c3c97af9545ab903789387afde, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

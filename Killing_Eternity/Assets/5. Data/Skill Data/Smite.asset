@@ -19,13 +19,16 @@ MonoBehaviour:
   skillElement: 2
   skillTags: 0100000005000000
   spawnLocation: 4
-  baseSkillCost: 10
+  baseSkillCost: 35
   baseResourceType: 2
-  baseDamage: 60
+  baseDamage: 80
+  hitRatio: 0.25
+  dotRatio: 1
   baseMeleeRange: 0
   baseCooldown: 0
   baseDuration: 0
   projectileSpeed: 0
+  projectileRange: 10
   basePierceCount: 0
   baseForkCount: 0
   baseChainCount: 0
